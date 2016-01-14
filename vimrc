@@ -2,6 +2,8 @@ execute pathogen#infect()
 
 syntax enable
 
+let g:netrw_dirhistmax = 0
+
 set laststatus=2
 set number
 set showcmd
