@@ -1,5 +1,11 @@
 [
     {
+        "link": {
+             "~/.vimrc": "vimrc",
+             "~/.vim": "vim"
+        }
+    },
+    {
         "shell": [
             ["git submodule update --init --recursive", "Installing/updating submodules"]
         ]
