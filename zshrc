@@ -69,7 +69,6 @@ WORDCHARS=''
 
 # editor
 export EDITOR="vim"
-export BROWSER="firefox"
 
 # grep colors
 export GREP_COLORS="mt=33"
@@ -109,24 +108,6 @@ zstyle ':completion:*' menu select
 
 
 # -----------------------------
-# Bindings
-# -----------------------------
-
-# emacs style
-bindkey -e
-
-bindkey "\e[3~" delete-char #delete
-
-bindkey "^[[H"  beginning-of-line #home
-bindkey "^[[F"  end-of-line       #end
-
-bindkey "^[[A"  history-beginning-search-backward #up
-bindkey "^[[B"  history-beginning-search-forward  #down
-
-bindkey '^[[1;5D'   backward-word #ctrl+left
-bindkey '^[[1;5C'   forward-word  #ctrl+right
-
-# -----------------------------
 # Aliases
 # -----------------------------
 
@@ -145,12 +126,6 @@ h() {
   fi
 }
 
-# permissions
-perms () {
-  find . -type d -exec chmod 770 {} \;
-  find . -type f -exec chmod 660 {} \;
-}
-
 # search
 ss() { find . | xargs grep "$1" -sl }
 
@@ -165,39 +140,8 @@ alias se='sudoedit'
 alias df='df -h'
 alias du='du -h --max-depth=1 | sort -h'
 
-alias off='sleep 1; xset dpms force off'
-
-# timer
-tm() { (sleep "$1" && cd /storage/music/fav && mpg123 -q "$(ls | shuf -n1)" ) & }
- t() { (sleep "$1" && mpg123 -q /storage/dropbox/sound/mailinbox.mp3 ) & }
-
-# yaourt / pacman
-alias  y='yaourt -S --noconfirm'
-alias yu='yaourt -Syu --aur --noconfirm'
-alias ya='yaourt -Syu --aur'
-
-alias yi='yaourt -Si'
-alias ys='yaourt -Ss'
-
-alias yr='yaourt -Rns'
-alias yd='yaourt -Rdd'
-
-alias pacman='sudo pacman'
-
-# aptitude
-alias  a='sudo aptitude install'
-alias au='sudo aptitude update && sudo aptitude safe-upgrade'
-alias ai='aptitude show'
-alias as='aptitude search'
-
-# rails
-alias rs='rails server'
-alias rc='rails console'
-alias db='rails dbconsole'
-alias rr="rails runner"
-alias spec='rspec spec'
-
-alias deploy='ssh_agent && cap production deploy'
+# apt-get
+alias apt-get='sudo apt-get'
 
 # ssh
 ssh_agent() {
@@ -208,19 +152,13 @@ ssh_agent() {
   fi
 }
 
-## rambler
-alias deploy_s1='ssh_agent && bundle exec cap staging1 deploy'
-alias deploy_s2='ssh_agent && bundle exec cap staging2 deploy'
-
 # git
 alias gc='git checkout'
 alias gcb='git checkout -b'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gs='git status --short --branch'
-alias gpr='git pull --rebase'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gamend='git add -A && git commit --amend --no-edit && git push -f'
 
 gf() {
   git add -A
@@ -230,6 +168,3 @@ gf() {
 
 # what the commit
 alias random_commit='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
-alias grf='git add -A; random_commit; git push -f'
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
