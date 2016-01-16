@@ -7,3 +7,6 @@
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/misc/vim-gotham"]
+	path = vim/misc/vim-gotham
+	url = https://github.com/whatyouhide/vim-gotham.git

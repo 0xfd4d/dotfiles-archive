@@ -1,5 +1,9 @@
 execute pathogen#infect()
 
+if exists('$DISPLAY')
+    colorscheme gotham
+endif
+
 let g:netrw_dirhistmax = 0
 
 set nocompatible
