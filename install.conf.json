@@ -1,8 +1,13 @@
 [
     {
+        "clean": ["~"]
+    },
+    {
         "link": {
-             "~/.vimrc": "vimrc",
-             "~/.vim": "vim"
+            "~/.dotfiles": "",
+            "~/.vimrc": "vimrc",
+            "~/.vim": "vim",
+            "~/.zshrc": "zshrc"
         }
     },
     {
