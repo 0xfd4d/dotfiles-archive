@@ -38,7 +38,7 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
-let g:ctrlp_user_command = 'find %s -type f'
-let g:ctrlp_custom_ignore = ''
-
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
