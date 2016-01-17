@@ -121,7 +121,7 @@ h() {
   if [[ -z "$1" ]]; then
     history
   else
-    history 0 | g "$*"
+    history 0 | grep --color=auto "$*"
   fi
 }
 
@@ -133,7 +133,7 @@ alias ping='ping -c 1'
 
 alias l='ls -lAh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
-alias g='grep --color=auto'
+alias grep='grep --color=auto'
 alias se='sudoedit'
 
 alias df='df -h'
@@ -158,12 +158,6 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gs='git status --short --branch'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-gf() {
-  git add -A
-  git commit -m "$*"
-  git push
-}
 
 # what the commit
 alias random_commit='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
