@@ -8,7 +8,6 @@
             "~/.vimrc": "vimrc",
             "~/.vim": "vim",
             "~/.zshrc": "zshrc",
-            "~/.dotfiles/vim/colors": "vim/misc/vim-gotham/colors"
         }
     },
     {

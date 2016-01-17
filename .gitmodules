@@ -7,6 +7,9 @@
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "vim/misc/vim-gotham"]
-	path = vim/misc/vim-gotham
+[submodule "vim/bundle/oceanic-next"]
+	path = vim/bundle/oceanic-next
+	url = https://github.com/mhartington/oceanic-next.git
+[submodule "vim/bundle/vim-gotham"]
+	path = vim/bundle/vim-gotham
 	url = https://github.com/whatyouhide/vim-gotham.git

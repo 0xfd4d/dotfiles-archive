@@ -6,6 +6,8 @@ endif
 
 let g:netrw_dirhistmax = 0
 
+syntax enable
+
 set nocompatible
 set t_Co=256
 set laststatus=2
