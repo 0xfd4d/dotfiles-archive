@@ -3,7 +3,7 @@
 # -----------------------------
 
 # colors
-#export TERM='xterm-256color'
+export TERM='xterm-256color'
 autoload -U colors && colors
 
 for color in red green yellow blue magenta cyan black white; do
@@ -121,7 +121,7 @@ h() {
   if [[ -z "$1" ]]; then
     history
   else
-    history 0 | grep "$*"
+    history 0 | g "$*"
   fi
 }
 
