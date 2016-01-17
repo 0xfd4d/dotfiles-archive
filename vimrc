@@ -1,8 +1,8 @@
 execute pathogen#infect()
 
-if exists('$DISPLAY')
-    colorscheme gotham
-endif
+"if exists('$DISPLAY')
+    colorscheme gotham256
+"endif
 
 let g:netrw_dirhistmax = 0
 
