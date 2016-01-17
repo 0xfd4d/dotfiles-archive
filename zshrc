@@ -72,7 +72,6 @@ export EDITOR="vim"
 
 # grep colors
 export GREP_COLORS="mt=33"
-export GREP_OPTIONS='--color=auto'
 
 # disable speaker
 unsetopt beep
@@ -134,7 +133,7 @@ alias ping='ping -c 1'
 
 alias l='ls -lAh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
-alias g='grep'
+alias g='grep --color=auto'
 alias se='sudoedit'
 
 alias df='df -h'
