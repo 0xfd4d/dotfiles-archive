@@ -15,7 +15,6 @@ set t_Co=256
 set laststatus=2
 set showcmd
 set showmode
-set nowrap
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -33,7 +32,6 @@ set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell
 set noerrorbells
 set autowrite
-set mouse=a
 
 set directory=/tmp
 
