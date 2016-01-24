@@ -1,12 +1,12 @@
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "vim/bundle/vim-gitgutter"]
-	path = vim/bundle/vim-gitgutter
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "vim/bundle/oceanic-next"]
-	path = vim/bundle/oceanic-next
+[submodule ".vim/bundle/oceanic-next"]
+	path = .vim/bundle/oceanic-next
 	url = https://github.com/mhartington/oceanic-next.git
-[submodule "vim/bundle/vim-gotham"]
-	path = vim/bundle/vim-gotham
+[submodule ".vim/bundle/vim-gotham"]
+	path = .vim/bundle/vim-gotham
 	url = https://github.com/whatyouhide/vim-gotham.git
