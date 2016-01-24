@@ -41,6 +41,8 @@
 !--------
 ! urxvt
 !--------
+URxvt*.perl-ext-common: default,selection-to-clipboard
+
 URxvt*.scrollBar: false
 
 URxvt*.saveLines: 2000
