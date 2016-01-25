@@ -7,9 +7,9 @@ main = xmonad defaultConfig
           , terminal = "urxvt"
           , workspaces = myWorkspaces
           , startupHook           = setWMName "LG3D"
-          , borderWidth = 1
-          , normalBorderColor  = "#cccccc"
-          , focusedBorderColor = "#fd971f"
+          , borderWidth = 2
+          , normalBorderColor  = "#111111"
+          , focusedBorderColor = "#353b3e"
         }
 
 myWorkspaces :: [String]
