@@ -46,3 +46,8 @@ URxvt*.perl-ext-common: default,selection-to-clipboard
 URxvt*.scrollBar: false
 
 URxvt*.saveLines: 2000
+
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~

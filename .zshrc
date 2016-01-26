@@ -3,7 +3,6 @@
 # -----------------------------
 
 # colors
-export TERM='xterm-256color'
 autoload -U colors && colors
 
 for color in red green yellow blue magenta cyan black white; do
@@ -34,7 +33,6 @@ zstyle ':vcs_info:*:*' stagedstr '+'
 zstyle ':vcs_info:*:*' actionformats "${black}[${cyan}%b%u%c %a${black}]"
 zstyle ':vcs_info:*:*' formats       "${black}[${cyan}%b%u%c${black}]"
 
-
 # root / user
 if [ "$EUID" -eq 0 ]; then
   bracket_o="${red}["
@@ -63,9 +61,6 @@ esac
 setopt extended_glob
 
 setopt interactive_comments
-
-# better word separators (ctrl-w will become much more useful)
-WORDCHARS=''
 
 # editor
 export EDITOR="vim"
@@ -161,3 +156,8 @@ alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%
 
 # what the commit
 alias random_commit='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
+
+# key bindings
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
+bindkey "\e[3~" delete-char

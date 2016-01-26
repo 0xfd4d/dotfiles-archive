@@ -1,7 +1,5 @@
 setxkbmap -layout "us,ru"
-setxkbmap -option "grp:caps_toggle,grp_led:scroll"
-
-#xxkb & 
+setxkbmap -option "grp:alt_shift_toggle,grp_led:scroll"
 
 xsetroot -cursor_name left_ptr
 
