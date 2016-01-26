@@ -28,7 +28,7 @@
 
 *.background:   #0a0f14
 *.foreground:   #98d1ce
-
+*.depth:        32
 
 ! -----------------------------
 ! font
@@ -46,6 +46,11 @@ URxvt*.perl-ext-common: default,selection-to-clipboard
 URxvt*.scrollBar: false
 
 URxvt*.saveLines: 2000
+
+#URxvt*inheritPixmap: true
+URxvt*.transparent: true
+! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt*.shading: 10
 
 URxvt.keysym.Home: \033[1~
 URxvt.keysym.End: \033[4~
