@@ -1,17 +1,25 @@
 import XMonad
 
 import XMonad.Hooks.SetWMName
---import XMonad.Layout.Spacing 
-main = xmonad defaultConfig
-        { modMask               = mod4Mask --Use Super instead of Alt
-          , terminal            = "urxvt"
-          , workspaces          = myWorkspaces
-          , startupHook         = setWMName "LG3D"
-          , borderWidth         = 2
-          , normalBorderColor   = "#353b3e"
-          , focusedBorderColor  = "lightgrey"
-          --, layoutHook = spacing 2 $ Tall 1 (50/100) (1/2)
-        }
+import XMonad.Layout.Fullscreen
 
-myWorkspaces :: [String]
-myWorkspaces =  ["1:www","2:dev","3:term","4:media"] ++ map show [5..9]
+myTerminal      = "urxvt"
+myWorkspaces    = ["1:www","2:dev","3:term"] ++ map show [4..9]
+myBorderWidth   = 2
+myNormalBorderColor = "#353b3e"
+myFocusedBorderColor = "lightgrey"
+
+main = do {
+        xmonad defaults
+    }
+
+defaults = defaultConfig
+    { modMask               = mod4Mask 
+    , terminal              = myTerminal
+    , workspaces            = myWorkspaces
+    , startupHook           = setWMName "LG3D"
+    , borderWidth           = myBorderWidth
+    , normalBorderColor     = myNormalBorderColor
+    , focusedBorderColor    = myFocusedBorderColor
+    , handleEventHook       = fullscreenEventHook
+    }

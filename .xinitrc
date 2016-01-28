@@ -8,4 +8,7 @@ xsetroot -cursor_name left_ptr
 redshift &
 mpd &
 
+chromium &
+urxvt &
+
 exec dbus-launch xmonad
