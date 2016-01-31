@@ -1,25 +1,60 @@
 import XMonad
-
+import XMonad.Hooks.ManageDocks
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Tabbed
+import XMonad.Layout.StackTile
+import XMonad.Hooks.DynamicLog
+import XMonad.Util.EZConfig
+import XMonad.Operations
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Fullscreen
+import XMonad.Util.Run(spawnPipe)
+import qualified  XMonad.StackSet as W
+import qualified Data.Map as M
 
-myTerminal      = "urxvt"
-myWorkspaces    = ["1:www","2:dev","3:term"] ++ map show [4..9]
-myBorderWidth   = 2
-myNormalBorderColor = "#353b3e"
-myFocusedBorderColor = "lightgrey"
+myWorkspaces = ["1:web","2:term","3:dev"] ++ map show [4..9]
 
-main = do {
-        xmonad defaults
-    }
+myLayouts = ( avoidStruts $ smartBorders $ 
+              Tall 1 (3/100) (1/2) |||
+              StackTile 1 (3/100) (1/2) ||| 
+              simpleTabbed )
 
-defaults = defaultConfig
-    { modMask               = mod4Mask 
-    , terminal              = myTerminal
-    , workspaces            = myWorkspaces
-    , startupHook           = setWMName "LG3D"
-    , borderWidth           = myBorderWidth
-    , normalBorderColor     = myNormalBorderColor
-    , focusedBorderColor    = myFocusedBorderColor
-    , handleEventHook       = fullscreenEventHook
-    }
+--myManageHook = composeAll [
+  --className =? "Gtk-recordmydesktop" --> doFloat,
+  --className =? "Xmessage"            --> doFloat,
+  --className =? "Gxmessage"           --> doFloat,
+  --className =? "Galculator"          --> doFloat, 
+  --className =? "Gksu"                --> doFloat 
+--  ]
+
+myLog = dynamicLogString xmobarPP {
+  ppCurrent         = xmobarColor "#D26939" "" . wrap "[" "]",
+  ppTitle           = xmobarColor "#98D1CE" "" . wrap "[" "]",
+  ppHidden          = xmobarColor "#EDB54B" "",
+  ppHiddenNoWindows = xmobarColor "#98D1CE" ""
+  , ppLayout        = xmobarColor "#33859D" "" 
+}
+
+myKeys x = M.union (keys defaultConfig x) (keysToAdd x) 
+  where
+    keysToAdd = \c -> mkKeymap c $ [
+      ("<XF86AudioRaiseVolume>", spawn "ponymix increase 2"),
+      ("<XF86AudioLowerVolume>", spawn "ponymix decrease 2")
+      ]
+
+main = do
+  xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobartop.hs"
+  xmonad $ defaultConfig {
+    modMask            = mod4Mask,
+    terminal           = "urxvt",
+    borderWidth        = 2,
+    normalBorderColor  = "#081F2D",
+    focusedBorderColor = "#D26939",
+    workspaces         = myWorkspaces,
+    layoutHook         = avoidStruts $ myLayouts,
+    logHook            = myLog >>= xmonadPropLog,
+    manageHook         = manageHook defaultConfig <+> manageDocks, 
+    keys               = myKeys,
+    handleEventHook    = fullscreenEventHook,
+    startupHook        = setWMName "LG3D" }
+    
