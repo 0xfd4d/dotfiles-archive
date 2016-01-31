@@ -3,6 +3,8 @@ setxkbmap -option "grp:alt_shift_toggle,grp_led:scroll"
 
 xsetroot -cursor_name left_ptr
 
+xbindkeys
+
 ./.fehbg
 
 redshift &
