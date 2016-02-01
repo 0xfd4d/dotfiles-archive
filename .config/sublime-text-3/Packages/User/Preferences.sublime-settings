@@ -1,13 +1,13 @@
 {
 	"color_scheme": "Packages/User/Gotham.tmTheme",
+	"default_line_ending": "unix",
 	"font_face": "Droid Sans Mono",
-	"font_size": 14,
+	"font_size": 13,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
 	"tab_size": 4,
 	"theme": "Material-Theme-Darker.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"default_line_ending": "unix"
+	"translate_tabs_to_spaces": true
 }

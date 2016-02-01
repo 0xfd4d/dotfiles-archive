@@ -8,6 +8,7 @@ import XMonad.Util.EZConfig
 import XMonad.Operations
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Fullscreen
+import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Util.Run(spawnPipe)
 import qualified  XMonad.StackSet as W
 import qualified Data.Map as M
@@ -28,9 +29,9 @@ myLayouts = ( avoidStruts $ smartBorders $
 --  ]
 
 myLog = dynamicLogString xmobarPP {
-  ppCurrent         = xmobarColor "#D26939" "" . wrap "[" "]",
+  ppCurrent         = xmobarColor "#33859D" "" . wrap "[" "]",
   ppTitle           = xmobarColor "#98D1CE" "" . wrap "[" "]",
-  ppHidden          = xmobarColor "#EDB54B" "",
+  ppHidden          = xmobarColor "#D26939" "",
   ppHiddenNoWindows = xmobarColor "#98D1CE" ""
   , ppLayout        = xmobarColor "#33859D" "" 
 }
@@ -51,7 +52,7 @@ main = do
     normalBorderColor  = "#081F2D",
     focusedBorderColor = "#D26939",
     workspaces         = myWorkspaces,
-    layoutHook         = avoidStruts $ myLayouts,
+    layoutHook         = myLayouts,
     logHook            = myLog >>= xmonadPropLog,
     manageHook         = manageHook defaultConfig <+> manageDocks, 
     keys               = myKeys,
