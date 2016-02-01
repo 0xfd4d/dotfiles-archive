@@ -2,7 +2,7 @@
 	"color_scheme": "Packages/User/Gotham.tmTheme",
 	"default_line_ending": "unix",
 	"font_face": "Droid Sans Mono",
-	"font_size": 13,
+	"font_size": 11,
 	"ignored_packages":
 	[
 		"Vintage"
