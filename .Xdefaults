@@ -1,0 +1,47 @@
+urxvt*font:             xft:DejaVu Sans Mono:size=10
+urxvt*boldFont:
+
+urxvt*perl-ext-common:  default,clipboard,url-select,font-size
+
+urxvt*keysym.M-u:       perl:url-select:select_next
+urxvt*url-select.launcher: chromium
+
+urxvt*keysym.M-c:       perl:clipboard:copy
+urxvt*keysym.M-v:       perl:clipboard:paste
+urxvt*keysym.M-C-v:     perl:clipboard:paste_escaped
+
+urxvt*keysym.C-Up:      font-size:increase
+urxvt*keysym.C-Down:    font-size:decrease
+
+urxvt*scrollBar:        false
+
+urxvt*saveLines:        99999
+
+urxvt*scrollTtyOutput:  false
+urxvt*scrollWithBuffer: true
+urxvt*scrollTtyKeypress: true
+
+urxvt*cursorBlink:      false
+urxvt*cursorUnderline:  false
+
+urxvt*depth:            32
+
+urxvt*background:       #010309
+urxvt*foreground:       #999999
+urxvt*color8:           #656565
+urxvt*color0:           #010309
+urxvt*color1:           #AC4F4F
+urxvt*color9:           #E85555
+urxvt*color2:           #88AB77
+urxvt*color10:          #8CCD6C
+urxvt*color3:           #D0D9AD
+urxvt*color11:          #C5D67D
+urxvt*color4:           #2D3753
+urxvt*color12:          #647396
+urxvt*color5:           #CDCDB4
+urxvt*color13:          #CDB4C9
+urxvt*color6:           #445362
+urxvt*color14:          #505B6C
+urxvt*color7:           #AAAAAA
+urxvt*color15:          #C0C0C0
+

@@ -1,0 +1,8 @@
+[user]
+    email = fd4d@users.noreply.github.com
+    name = fd4d
+[color]
+    ui = auto
+    diff = false
+[pager]
+    diff = nvim -R -

@@ -1,0 +1,94 @@
+#!/bin/sh
+
+LEMONBAR_FIFO="/tmp/lemonbar_fifo"
+
+[ -e "$LEMONBAR_FIFO" ] && rm "$LEMONBAR_FIFO"
+mkfifo "$LEMONBAR_FIFO"
+
+C1="%{F#ff0a0b10}"
+C2="%{F#ffc0c0c0}"
+C3="%{F#ffe85555}"
+C4="%{F#ff2D3753}"
+CE="%{F-}"
+
+desktops() {
+    sleep 1
+    bspc subscribe | \
+    while read -r line ; do
+        [ $( echo $line | grep "^WM$MONITOR" ) ] || continue
+        desktops=""
+        for e in $(echo $line | cut -d':' -f2-10 | tr ':' '\n')
+        do
+            desktop=""
+            if [ "${e:0:1}" == "O" ]; then
+                desktop="$C4"
+            elif [ "${e:0:1}" == "u" ]; then
+                desktop="$C3"
+            elif [ "${e:0:1}" == "F" ]; then
+                desktop="$C4"
+            elif [ "${e:0:1}" == "o" ]; then
+                desktop="$C2"
+            else
+                desktop="$C1"
+            fi
+            desktops="$desktops%{A:bspc desktop -f ${e:1:2}:}$desktop● %{A} "
+        done
+        echo "D$desktops"
+    done
+}
+
+dateTime() {
+    while true; do
+        DATE=$(date "+%a %d %b %H:%M %p")
+        echo "C$C2$DATE"
+        sleep 60
+    done
+}
+
+printSong() { 
+    STATUS_1=$(mpc current 2> /dev/null)
+    if [[ "$STATUS_1" != "" ]]; then
+        STATUS_2=$(mpc | sed -n '2p')
+        if [[ "$STATUS_2" == *"paused"* ]]; then
+            echo "M"
+        else
+            echo "M$C2$STATUS_1"
+        fi
+    else
+        echo "M"
+    fi
+}
+
+music() {
+    while true; do
+        echo $(printSong)
+        mpc idleloop 2> /dev/null | \
+            while read -r line ; do
+                echo $(printSong)
+            done
+        sleep 5
+    done
+}
+
+compose() {
+    while read -r line; do
+        case $line in
+            D*)
+                desktop="${line#?}"
+                ;;
+            M*)
+                music="${line#?}"
+                ;;
+            C*)
+                clock="${line#?}"
+                ;;
+        esac
+        printf "%s\n" "%{l} ${desktop}%{r}${music}   ${clock} "
+    done
+}
+
+desktops    > "$LEMONBAR_FIFO" &
+music       > "$LEMONBAR_FIFO" &
+dateTime    > "$LEMONBAR_FIFO" &
+
+cat "$LEMONBAR_FIFO" | compose | lemonbar -p -g "1366x25+0+0" -u 0 -B "#ff00030a" -f "DejaVu Sans:size=10" | sh
