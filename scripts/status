@@ -31,7 +31,7 @@ desktops() {
             else
                 desktop="$C1"
             fi
-            desktops="$desktops%{A:bspc desktop -f ${e:1:2}:}$desktop● %{A} "
+            desktops="$desktops$desktop●  "
         done
         echo "D$desktops"
     done
@@ -91,4 +91,4 @@ desktops    > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -p -g "1366x25+0+0" -u 0 -B "#ff00030a" -f "DejaVu Sans:size=10" | sh
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -u 0 -B "#ff00030a" -f "DejaVu Sans:size=9"

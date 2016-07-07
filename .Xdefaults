@@ -1,10 +1,9 @@
-urxvt*font:             xft:DejaVu Sans Mono:size=10
-urxvt*boldFont:
+urxvt*font:             xft:DejaVu Sans Mono:size=9
 
 urxvt*perl-ext-common:  default,clipboard,url-select,font-size
 
 urxvt*keysym.M-u:       perl:url-select:select_next
-urxvt*url-select.launcher: chromium
+urxvt*url-select.launcher: xdg-open
 
 urxvt*keysym.M-c:       perl:clipboard:copy
 urxvt*keysym.M-v:       perl:clipboard:paste

@@ -151,4 +151,4 @@ super + {Left,Down,Up,Right}
 
 # shortcuts
 super + F1
-    inox # chromium #--proxy-server="socks5://127.0.0.1:9050" --host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE 127.0.0.1"
+    firefox-beta # inox # chromium #--proxy-server="socks5://127.0.0.1:9050" --host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE 127.0.0.1"

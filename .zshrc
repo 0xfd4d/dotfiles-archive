@@ -82,4 +82,4 @@ export GREP_COLORS="mt=33"
 export PATH="$PATH:/sbin"
 export PATH="$PATH:/usr/sbin"
 
-# cat /mnt/data/things
+echo "She is entered the world, and she said, — Time is not waiting."
