@@ -1,75 +1,27 @@
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
-#new-tab-button, #search-container, #nav-bar-overflow-button,
-.tabs-newtab-button, .tab-close-button, .tab-background-start, .tab-background-end, .tab-close, .tab-throbber,
-#window-controls, #pocket-button, #loop-button, #social-share-button, #reader-mode-button, #readinglist-addremove-button, .urlbar-history-dropmarker
-{ display: none !important; }
-
-#TabsToolbar {
-    background: transparent !important;
-    margin-bottom: 0 !important;
-}
-
-#TabsToolbar .arrowscrollbox-scrollbox {
-    padding: 0 !important;
-}
-
-#TabsToolbar .tabbrowser-tabs {
-    min-height: 30px !important;
-    margin-top: -1px !important;
-    margin-left: -1px !important;
-}
-
 #TabsToolbar .tabbrowser-tab {
     -moz-border-top-colors: none !important;
     -moz-border-left-colors: none !important;
     -moz-border-right-colors: none !important;
     -moz-border-bottom-colors: none !important;
-    border-style: solid !important;
-    border-color: rgba(0,0,0,0) !important;
-    border-width: 1px 0px 0px 1px !important;
+    border-width: 0 !important;
     padding: 0px 0px !important;
-    background-color: #0a0b10;
-    background-clip: padding-box !important;
+    background-color: #010309;
     color: #c0c0c0
-    transition: all .4s !important;
-    margin-left: 0px !important;
-}
-
-#TabsToolbar .tabbrowser-tab[first-tab][last-tab],
-#TabsToolbar .tabbrowser-tab[last-visible-tab] {
-    border-right-width: 0px !important;
-}
-
-#TabsToolbar .tabbrowser-tab[afterselected] {
-   border-left-color: rgba(0,0,0,0) !important;
 }
 
 #TabsToolbar .tabbrowser-tab[selected] {
-    color: #FFFFFF !important;
+    color: #c0c0c0 !important;
     background: #2D3753 !important;
-    background-clip: padding-box !important;
-    border-color: rgba(0,0,0,0) !important;
 }
 
-#TabsToolbar .tabs-newtab-button:hover,
-#TabsToolbar .tabbrowser-tab:hover:not([selected]) {
-    border-color: rgba(0,0,0,0) !important;
-    background-color: rgba(255,255,255,0) !important;
+#TabsToolbar .tab-background-middle {
+    background: transparent !important;
 }
 
 #TabsToolbar .tab-background {
     margin: 0 !important;
-    background: transparent !important;
-}
-
-#TabsToolbar .tab-background-start,
-#TabsToolbar .tab-background-end {
-    display: none !important;
-}
-
-#TabsToolbar .tab-background-middle {
-    margin: -4px -2px !important;
     background: transparent !important;
 }
 
@@ -78,24 +30,20 @@
     display: none !important;
 }
 
-#TabsToolbar .tabs-newtab-button {
-    display: none;
-    border-width: 1px 1px 0 0px !important;
-    margin: 0 !important;
-    width: auto !important;
-    padding: 0 5px !important;
-}
-
-#addon-bar,
-#PersonalToolbar,
-#nav-bar {
+#addon-bar, #PersonalToolbar, #nav-bar {
     background: #010309 !important;
     box-shadow: none !important;
-    background-clip: padding-box !important;
-    border-color: rgba(0,0,0,.25) !important;
-    border-radius: 0 !important;
 }
 
-menubar, toolbar, nav-bar, #TabsToolbar > * {
+#TabsToolbar > * {
     background-color: #010309 !important;
+}
+
+#alltabs-button, #new-tab-button,
+.tab-background-start, .tab-background-end,
+.tab-close-button, .tabs-newtab-button,
+.arrowscrollbox-overflow-end-indicator,
+.tabbrowser-arrowscrollbox > .scrollbutton-up,
+.tabbrowser-arrowscrollbox > .scrollbutton-down {
+    display: none;
 }

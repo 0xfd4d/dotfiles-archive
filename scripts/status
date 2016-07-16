@@ -6,36 +6,35 @@ LEMONBAR_FIFO="/tmp/lemonbar_fifo"
 mkfifo "$LEMONBAR_FIFO"
 
 C1="%{F#ff0a0b10}"
-C2="%{F#ffc0c0c0}"
+C2="%{F#ff999999}"
 C3="%{F#ffe85555}"
 C4="%{F#ff2D3753}"
-CE="%{F-}"
 
-desktops() {
-    sleep 1
-    bspc subscribe | \
-    while read -r line ; do
-        [ $( echo $line | grep "^WM$MONITOR" ) ] || continue
-        desktops=""
-        for e in $(echo $line | cut -d':' -f2-10 | tr ':' '\n')
-        do
-            desktop=""
-            if [ "${e:0:1}" == "O" ]; then
-                desktop="$C4"
-            elif [ "${e:0:1}" == "u" ]; then
-                desktop="$C3"
-            elif [ "${e:0:1}" == "F" ]; then
-                desktop="$C4"
-            elif [ "${e:0:1}" == "o" ]; then
-                desktop="$C2"
-            else
-                desktop="$C1"
-            fi
-            desktops="$desktops$desktop●  "
-        done
-        echo "D$desktops"
-    done
-}
+# desktops() {
+#     sleep 1
+#     bspc subscribe | \
+#     while read -r line ; do
+#         [ $( echo $line | grep "^WM$MONITOR" ) ] || continue
+#         desktops=""
+#         for e in $(echo $line | cut -d':' -f2-7 | tr ':' '\n')
+#         do
+#             desktop=""
+#             if [ "${e:0:1}" == "O" ]; then
+#                 desktop="$C4"
+#             elif [ "${e:0:1}" == "u" ]; then
+#                 desktop="$C3"
+#             elif [ "${e:0:1}" == "F" ]; then
+#                 desktop="$C4"
+#             elif [ "${e:0:1}" == "o" ]; then
+#                 desktop="$C2"
+#             else
+#                 desktop="$C1"
+#             fi
+#             desktops="$desktops$desktop●  "
+#         done
+#         echo "D$desktops"
+#     done
+# }
 
 dateTime() {
     while true; do
@@ -73,9 +72,9 @@ music() {
 compose() {
     while read -r line; do
         case $line in
-            D*)
-                desktop="${line#?}"
-                ;;
+            # D*)
+            #     desktop="${line#?}"
+            #     ;;
             M*)
                 music="${line#?}"
                 ;;
@@ -83,12 +82,12 @@ compose() {
                 clock="${line#?}"
                 ;;
         esac
-        printf "%s\n" "%{l} ${desktop}%{r}${music}   ${clock} "
+        echo "%{r}${music}   ${clock} "
     done
 }
 
-desktops    > "$LEMONBAR_FIFO" &
+# desktops    > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -u 0 -B "#ff00030a" -f "DejaVu Sans:size=9"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -u 0 -B "#f5000000" -f "DejaVu Sans:size=9:antialias=true:hinting=true"

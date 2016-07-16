@@ -8,6 +8,7 @@ xset r rate 500 60
 redshift -l 59.9343:30.3351 &
 btsync &
 urxvtd &
+compton &
 sxhkd &
 ~/dotfiles/scripts/status &
 exec bspwm

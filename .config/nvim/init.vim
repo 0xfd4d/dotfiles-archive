@@ -79,6 +79,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_c_config_file = '.config_c'
+let g:syntastic_c_no_include_search = 1
+
 let g:go_list_type = "quickfix"
 
 let g:deoplete#enable_at_startup = 1

@@ -4,12 +4,12 @@
 #
 
 # terminal emulator
-super + Return
+super + {Return,KP_Enter}
 	urxvtc
 
 # program launcher
 super + space
-    dmenu_run -z -q  -nb "#010309" -nf "#999999" -sb "#2D3753" -sf "#999999" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "DejaVu Sans Mono:size=10"
+    dmenu_run -q -o 0.95 -nb "#000000" -nf "#999999" -sb "#2D3753" -sf "#999999" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "xft:DejaVu Sans Mono:size=9:antialias=true:hinting=true"
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -151,4 +151,4 @@ super + {Left,Down,Up,Right}
 
 # shortcuts
 super + F1
-    firefox-beta # inox # chromium #--proxy-server="socks5://127.0.0.1:9050" --host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE 127.0.0.1"
+    firefox-beta

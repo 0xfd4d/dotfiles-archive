@@ -3,7 +3,7 @@ mode = waves
 
 framerate = 60
 
-sensitivity = 10
+sensitivity = 5
 autosens = 0
 
 bars = 0 
