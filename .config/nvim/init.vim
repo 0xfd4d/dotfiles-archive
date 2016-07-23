@@ -12,6 +12,7 @@ Plug 'gorodinskiy/vim-coloresque'
 Plug 'w0ng/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
+Plug 'shawncplus/phpcomplete.vim'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -55,10 +56,23 @@ set incsearch
 set ignorecase
 set smartcase
 
-set shortmess=I
-
-set wildmode=longest,list,full
+set wildmode=longest,list
 set wildmenu
+
+function! ReadOnly()
+if &readonly || !&modifiable
+    return '!'
+else
+    return ''
+endfunction
+
+set statusline=
+set statusline+=\ %{toupper(mode())}\ 
+set statusline+=\ %<%F\ %{ReadOnly()}\ %m\ 
+set statusline+=\ %=
+set statusline+=\ %y
+set statusline+=\ %{(&fenc!=''?&fenc:&enc)}\ %{&ff}\ 
+
 
 if exists("+undofile")
   if isdirectory($HOME . '/.config/nvim/undodir') == 0
@@ -92,3 +106,7 @@ set background=dark
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 0 
 colorscheme hybrid
+
+" Scheme override
+hi StatusLine ctermbg=0 ctermfg=12
+

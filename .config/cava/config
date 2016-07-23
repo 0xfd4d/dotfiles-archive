@@ -28,7 +28,7 @@ background = black
 foreground = blue
 
 [smoothing]
-integral = 0.68
+integral = 0.7
 
 monstercat = 0.85
 
