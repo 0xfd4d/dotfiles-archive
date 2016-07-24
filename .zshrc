@@ -80,4 +80,19 @@ export GREP_COLORS="mt=33"
 export PATH="$PATH:/sbin"
 export PATH="$PATH:/usr/sbin"
 
-cat /mnt/data/things
+echo "Sacra Luna, 
+In dies desperationis et cosmici maeroris 
+Voco tui, 
+Quam unicum et altissimum bonum, 
+Quam amores meus et ut deam mea, 
+Enim non est in noctis sancta magis quo tu. 
+—
+Nocturna sacerdotis, 
+Salvaveris ratio mea, salvaveris animam mea 
+Et dixeris via vera 
+Et ero amare tui, ero adare tibi. 
+Ad ipsa mortis. 
+
+Gloria Lunae. Vivat aeterna Nox.
+
+\033[1mAmen."
