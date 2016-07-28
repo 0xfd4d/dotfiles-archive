@@ -5,7 +5,7 @@ header_visibility = "no"
 autocenter_mode = "yes"
 display_bitrate = "yes"
 
-progressbar_look =  "▄▄▄"
+progressbar_look =  "░░░"
 progressbar_color = black
 progressbar_elapsed_color = blue
 

@@ -1,9 +1,9 @@
 #!/bin/sh
 
 bspc config border_width            4
-bspc config window_gap              20
+bspc config window_gap              0
 
-bspc config top_padding             20
+bspc config top_padding             25
 
 bspc config focused_border_color    \#2d3753
 bspc config normal_border_color     \#000000
@@ -16,24 +16,18 @@ bspc config gapless_monocle         true
 bspc config single_monocle          true
 bspc config click_to_focus          true
 
-bspc monitor -d www terminal dev music desktop media im vm gfx etc
+bspc monitor -d          
 
-bspc rule -a Firefox desktop=www follow=on
+bspc rule -a Firefox desktop= follow=on
 
-bspc rule -a Zathura desktop=desktop state=tiled follow=on
-bspc rule -a Pavucontrol desktop=desktop state=floating follow=on
-bspc rule -a Pcmanfm desktop=desktop follow=on
+bspc rule -a Zathura desktop= state=tiled follow=on
+bspc rule -a Pcmanfm desktop= follow=on
 
-bspc rule -a feh desktop=media follow=on
-bspc rule -a mpv desktop=media follow=on
+bspc rule -a feh desktop= follow=on
+bspc rule -a mpv desktop= follow=on
 
-bspc rule -a Ghetto\ Skype desktop=im follow=on
-bspc rule -a Discord desktop=im follow=on # facetable
-
-bspc rule -a krita desktop=gfx follow=on
-bspc rule -a MyPaint desktop=gfx follow=on
-bspc rule -a Inkscape desktop=gfx follow=on
-bspc rule -a Gimp desktop=gfx follow=on
-
-bspc rule -a Steam desktop=etc follow=no
+bspc rule -a krita desktop= follow=on
+bspc rule -a MyPaint desktop= follow=on
+bspc rule -a Inkscape desktop= follow=on
+bspc rule -a Gimp desktop= follow=on
 
