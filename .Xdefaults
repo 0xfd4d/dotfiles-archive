@@ -8,7 +8,7 @@ Xft.rgba: rgb
 
 urxvt*title: terminal
 
-urxvt*font: xft:DejaVu Sans Mono:size=13
+urxvt*font: xft:Droid Sans Mono:size=13
 ! urxvt*boldFont:
 
 urxvt*perl-ext-common: default,clipboard,url-select,font-size
@@ -34,7 +34,7 @@ urxvt*scrollTtyKeypress: true
 urxvt*cursorBlink: false
 urxvt*cursorUnderline: false
 
-rgba:0000/0000/0000/f500
+! rgba:0000/0000/0000/f500
 urxvt*background:       #000000
 urxvt*foreground:       #cccccc
 urxvt*color8:           #656565

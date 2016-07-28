@@ -38,7 +38,7 @@ title() {
     sleep 1
     xtitle -s | \
     while read -r title ; do
-        sleep 0.01
+        sleep 0.1
         echo "T$FF$title$R"
     done
 }

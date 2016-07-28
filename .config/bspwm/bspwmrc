@@ -35,3 +35,5 @@ bspc rule -a MyPaint desktop=gfx follow=on
 bspc rule -a Inkscape desktop=gfx follow=on
 bspc rule -a Gimp desktop=gfx follow=on
 
+bspc rule -a Steam desktop=etc follow=no
+

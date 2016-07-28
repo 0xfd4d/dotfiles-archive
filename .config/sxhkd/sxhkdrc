@@ -9,7 +9,7 @@ super + {Return,KP_Enter}
 
 # program launcher
 super + space
-    dmenu_run -q -dim 1 -nb "#000000" -nf "#cccccc" -sb "#2d3753" -sf "#cccccc" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "xft:DejaVu Sans Mono:size=13"
+    dmenu_run -q -dim 1 -nb "#000000" -nf "#cccccc" -sb "#2d3753" -sf "#cccccc" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "Droid Sans Mono:size=13"
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -141,7 +141,7 @@ super + shift + button1
 
 # volume
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-    amixer set Master 5%{+,-}
+    ~/dotfiles/scripts/volume 2{+,-}
 
 # screen
 {_,ctrl} + Print
