@@ -1,6 +1,6 @@
 filetype off
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
@@ -13,11 +13,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
 Plug 'shawncplus/phpcomplete.vim'
-
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/neocomplete.vim'
 
 call plug#end()
 
@@ -49,15 +45,19 @@ set softtabstop=4
 
 set scrolloff=10
 
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
-set hlsearch 
+set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
 set wildmode=longest,list
 set wildmenu
+
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
 
 function! ReadOnly()
 if &readonly || !&modifiable
@@ -75,12 +75,12 @@ set statusline+=\ %{(&fenc!=''?&fenc:&enc)}\ %{&ff}\
 
 
 if exists("+undofile")
-  if isdirectory($HOME . '/.config/nvim/undodir') == 0
-    :silent !mkdir -p ~/.config/nvim/undodir > /dev/null 2>&1
+  if isdirectory($HOME . '/.vim/undodir') == 0
+    :silent !mkdir -p ~/.vim/undodir > /dev/null 2>&1
   endif
 endif
 
-set undodir=~/.config/nvim/undodir
+set undodir=~/.vim/undodir
 
 let g:neocomplete#enable_at_startup = 1
 
@@ -98,18 +98,31 @@ let g:syntastic_c_no_include_search = 1
 
 let g:go_list_type = "quickfix"
 
-let g:deoplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
 
 map <F2> :Explore<CR>
 
+inoremap jk <ESC>
+
 " space bar un-highlights search
-:noremap <silent> <Space> :silent noh<Bar>echo<CR>
+noremap <silent> <Space> :silent noh<Bar>echo<CR>
+
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+
+set guifont=DejaVu\ Sans\ Mono\ 13
 
 set background=dark
 let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 0 
+let g:hybrid_reduced_contrast = 0
 colorscheme hybrid
 
 " Scheme override
 hi StatusLine ctermbg=0 ctermfg=12
+
+" Hightlight whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 

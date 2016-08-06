@@ -5,8 +5,8 @@ LEMONBAR_FIFO="/tmp/lemonbar_fifo"
 [ -e "$LEMONBAR_FIFO" ] && rm "$LEMONBAR_FIFO"
 mkfifo "$LEMONBAR_FIFO"
 
-FU="%{U#ff2d3753}"
-FF="%{F#ff2d3753}"
+FU="%{U#ff2f558e}"
+FF="%{F#ff2f558e}"
 
 R="%{U-}%{F-}"
 
@@ -39,7 +39,7 @@ title() {
     xtitle -s | \
     while read -r title ; do
         sleep 0.1
-        echo "T$FF$title$R"
+        echo "T$title"
     done
 }
 
@@ -102,4 +102,4 @@ title       > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#ff000000" -F "#ffcccccc" -U "#ffcccccc" -u 2 -f "DejaVu Sans:size=13" -f "Fontawesome:size=15"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#ff080808" -F "#ffdbdbdb" -U "#ffdbdbdb" -u 2 -f "DejaVu Sans:size=13" -f "Fontawesome:size=15"

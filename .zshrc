@@ -74,7 +74,7 @@ bindkey '^[[3~' delete-char
 
 export GOPATH="$HOME/dev/go"
 export PATH="$PATH:$HOME/dev/go/bin"
-export EDITOR="nvim"
+export EDITOR="vim"
 export GREP_COLORS="mt=33"
 
 export PATH="$PATH:/sbin"

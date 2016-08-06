@@ -5,4 +5,4 @@
     ui = auto
     diff = false
 [pager]
-    diff = nvim -R -
+    diff = vim -R -
