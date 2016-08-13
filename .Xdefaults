@@ -1,5 +1,5 @@
 Xft.autohint: 0
-Xft.dpi: 72
+Xft.dpi: 96
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
 Xft.hinting: 1
@@ -8,7 +8,7 @@ Xft.rgba: rgb
 
 urxvt*title: terminal
 
-urxvt*font: xft:Droid Sans Mono:size=13
+urxvt*font: xft:Luxi Mono:size=10,xft:DejaVu Sans Mono:size=10
 urxvt*boldFont:
 
 urxvt*perl-ext-common: default,clipboard,url-select,font-size
@@ -41,32 +41,32 @@ urxvt*cursorUnderline: false
 
 ! black
 *.color0:       #080808
-*.color8:       #656565
+*.color8:       #303030
 
 ! red
-*.color1:       #e85555
+*.color1:       #e22828
 *.color9:       #e85555
 
 ! green
-*.color2:       #8ccd6c
+*.color2:       #6ebf45
 *.color10:      #8ccd6c
 
 ! yellow
-*.color3:       #bccd50
-*.color11:      #bccd50
+*.color3:       #d6ef2e
+*.color11:      #e1f467
 
 ! blue
 *.color4:       #2f558e
-*.color12:      #2f558e
+*.color12:      #5978a6
 
 ! magenta
-*.color5:       #cdb4c9
-*.color13:      #cdb4c9
+*.color5:       #85678f
+*.color13:      #b294bb
 
 ! cyan
-*.color6:       #5978a6
-*.color14:      #5978a6
+*.color6:       #0496af
+*.color14:      #4ae4e4
 
 ! white
-*.color7:       #dbdbdb
+*.color7:       #a8a8a8
 *.color15:      #dbdbdb

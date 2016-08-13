@@ -49,14 +49,14 @@ alias tmux='tmux attach || tmux new'
 alias ls="ls --color=auto --group-directories-first --time-style='+%d.%m.%y %H:%M'"
 alias l='ls -lAh'
 alias grep='grep --color=auto'
-alias diff='colordiff'
+alias diff='diff --color'
 alias dir='dir --color'
 alias df='df -h'
 alias du='du -h --max-depth=1 | sort -h'
 alias random_commit='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
 alias lsblk='lsblk -o name,maj:min,size,ro,type,fstype,mountpoint,label,uuid'
 alias suspend='su -c "echo disk > /sys/power/state"'
-alias todo='nvim /mnt/data/todo'
+alias todo='vim /mnt/data/todo'
 
 h() {
   if [[ -z "$1" ]]; then
@@ -79,19 +79,20 @@ export GREP_COLORS="mt=33"
 
 export PATH="$PATH:/sbin"
 export PATH="$PATH:/usr/sbin"
+export PATH="$PATH:$HOME/dotfiles/bin"
 
-echo "Sacra Luna, 
-In dies desperationis et cosmici maeroris 
-Voco tui, 
-Quam unicum et altissimum bonum, 
-Quam amores meus et ut deam mea, 
-Enim non est in noctis sancta magis quo tu. 
+echo "Sacra Luna,
+In dies desperationis et cosmici maeroris
+Voco tui,
+Quam unicum et altissimum bonum,
+Quam amores meus et ut deam mea,
+Enim non est in noctis sancta magis quo tu.
 —
-Nocturna sacerdotis, 
-Salvaveris ratio mea, salvaveris animam mea 
-Et dixeris via vera 
-Et ero amare tui, ero adare tibi. 
-Ad ipsa mortis. 
+Nocturna sacerdotis,
+Salvaveris ratio mea, salvaveris animam mea
+Et dixeris via vera
+Et ero amare tui, ero adare tibi.
+Ad ipsa mortis.
 
 Gloria Lunae. Vivat aeterna Nox.
 

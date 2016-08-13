@@ -1,4 +1,5 @@
-song_list_format = "%4l > {%a - %t}|{%f} $R %b"
+song_list_format = "{%a - }{%t}|{$5%f$9}$R%l"
+
 cyclic_scrolling = yes
 playlist_display_mode = classic
 header_visibility = "no"

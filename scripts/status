@@ -38,7 +38,7 @@ title() {
     sleep 1
     xtitle -s | \
     while read -r title ; do
-        sleep 0.1
+        sleep 0.01
         echo "T$title"
     done
 }
@@ -102,4 +102,4 @@ title       > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#ff080808" -F "#ffdbdbdb" -U "#ffdbdbdb" -u 2 -f "DejaVu Sans:size=13" -f "Fontawesome:size=15"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#ff080808" -F "#ffdbdbdb" -U "#ffdbdbdb" -u 2 -f "DejaVu Sans:size=10" -f "Fontawesome:size=12"

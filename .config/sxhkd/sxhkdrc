@@ -9,7 +9,7 @@ super + {Return,KP_Enter}
 
 # program launcher
 super + space
-    dmenu_run -q -dim 1 -nb "#080808" -nf "#dbdbdb" -sb "#2f558e" -sf "#dbdbdb" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "Droid Sans Mono:size=13"
+    dmenu_run -q -dim 1 -nb "#080808" -nf "#dbdbdb" -sb "#2f558e" -sf "#dbdbdb" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "DejaVu Sans:size=10"
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -149,4 +149,4 @@ super + {F9,F10,F11,F12}
 
 # shortcuts
 super + {F1,F2,F3}
-    {firefox-beta,pcmanfm,pavucontrol}
+    {firefox,pcmanfm,pavucontrol}

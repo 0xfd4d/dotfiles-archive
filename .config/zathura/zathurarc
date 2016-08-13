@@ -1,4 +1,4 @@
-set font "DejaVu Sans 13"
+set font "DejaVu Sans 10"
 set default-bg "#080808"
 set default-fg "#dbdbdb"
 set statusbar-bg "#2f558e"
