@@ -8,10 +8,8 @@ xset r rate 500 60
 redshift -l 59.9343:30.3351 &
 btsync &
 urxvtd &
-unclutter &
 sxhkd &
-# compton &
-# ~/.fehbg
+~/.fehbg
 
 ~/dotfiles/scripts/border &
 ~/dotfiles/scripts/status &

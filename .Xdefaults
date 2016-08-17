@@ -8,7 +8,7 @@ Xft.rgba: rgb
 
 urxvt*title: terminal
 
-urxvt*font: xft:Luxi Mono:size=10,xft:DejaVu Sans Mono:size=10
+urxvt*font: xft:dejavu sans mono:size=10
 urxvt*boldFont:
 
 urxvt*perl-ext-common: default,clipboard,url-select,font-size

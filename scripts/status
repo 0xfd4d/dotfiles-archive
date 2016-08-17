@@ -5,10 +5,9 @@ LEMONBAR_FIFO="/tmp/lemonbar_fifo"
 [ -e "$LEMONBAR_FIFO" ] && rm "$LEMONBAR_FIFO"
 mkfifo "$LEMONBAR_FIFO"
 
-FU="%{U#ff2f558e}"
-FF="%{F#ff2f558e}"
+FU="%{U#080808}"
 
-R="%{U-}%{F-}"
+R="%{U-}"
 
 desktops() {
     sleep 1
@@ -20,9 +19,9 @@ desktops() {
         do
             desktop=""
             if [ "${e:0:1}" == "O" ]; then
-                desktop="$FU$FF%{+o} ${e:1} %{-o}$R"
+                desktop="$FU%{+o} ${e:1} %{-o}$R"
             elif [ "${e:0:1}" == "F" ]; then
-                desktop="$FU$FF%{+o} ${e:1} %{-o}$R"
+                desktop="$FU%{+o} ${e:1} %{-o}$R"
             elif [ "${e:0:1}" == "o" ]; then
                 desktop=" ${e:1} "
             else
@@ -51,7 +50,7 @@ dateTime() {
     done
 }
 
-printSong() { 
+printSong() {
     STATUS_1=$(mpc current 2> /dev/null)
     if [[ "$STATUS_1" != "" ]]; then
         STATUS_2=$(mpc | sed -n '2p')
@@ -102,4 +101,4 @@ title       > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#ff080808" -F "#ffdbdbdb" -U "#ffdbdbdb" -u 2 -f "DejaVu Sans:size=10" -f "Fontawesome:size=12"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#dbdbdb" -F "#080808" -U "#080808" -u 3 -f "DejaVu Sans:size=10" -f "Fontawesome:size=11"

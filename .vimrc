@@ -121,7 +121,7 @@ let g:hybrid_reduced_contrast = 0
 colorscheme hybrid
 
 " Scheme override
-hi StatusLine ctermbg=0 ctermfg=12
+hi StatusLine ctermbg=0 ctermfg=0
 
 " Hightlight whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
