@@ -141,7 +141,7 @@ super + {F9,F10,F11,F12}
 
 # volume
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-    ~/dotfiles/scripts/volume 2{+,-}
+    ~/dotfiles/scripts/volume 1{+,-}
 
 # screen
 {_,ctrl} + Print

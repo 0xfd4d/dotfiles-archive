@@ -79,7 +79,8 @@ export GREP_COLORS="mt=33"
 
 export PATH="$PATH:/sbin"
 export PATH="$PATH:/usr/sbin"
-export PATH="$PATH:$HOME/dotfiles/bin"
+
+export MANPAGER="env MAN_PN=1 vim +MANPAGER -"
 
 echo "Sacra Luna,
 In dies desperationis et cosmici maeroris
