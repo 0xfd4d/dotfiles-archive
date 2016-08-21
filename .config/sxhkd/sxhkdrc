@@ -9,7 +9,7 @@ super + {Return,KP_Enter}
 
 # program launcher
 super + space
-    dmenu_run -q -dim 1 -nb "#080808" -nf "#dbdbdb" -sb "#dbdbdb" -sf "#080808" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "DejaVu Sans:size=10"
+    dmenu_run -q -nb "#08080b" -nf "#e7e8eb" -sb "#e7e8eb" -sf "#08080b" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "DejaVu Sans:size=10"
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -148,5 +148,5 @@ super + {F9,F10,F11,F12}
     FILE_NAME="s$(($(date +%s%N)/1000000)).png" ; import {-window root,_} /tmp/$FILE_NAME && cp /tmp/$FILE_NAME ~/s.png
 
 # shortcuts
-super + {F1,F2,F3}
-    {firefox-beta,pcmanfm,pavucontrol}
+super + {F1,F2,F3,F5}
+    {firefox,pcmanfm,pavucontrol,googleimg}

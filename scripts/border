@@ -1,8 +1,10 @@
 #!/bin/bash
 update() {
-    chwb3 -O 080808  -I 080808 -i 3 -o 3 `bspc query -N -n .!descendant_of.window`
-    chwb3 -O 080808  -I dbdbdb -i 3 -o 3 `bspc query -N -n .descendant_of.window`
+    chwb3 -O 08080b  -I 08080b -i 3 -o 3 `bspc query -N -n .!descendant_of.window`
+    chwb3 -O 08080b  -I e7e8eb -i 3 -o 3 `bspc query -N -n .descendant_of.window`
 }
+
+sleep 5
 
 bspc subscribe node_geometry node_focus | while read msg; do
     update 2> /dev/null

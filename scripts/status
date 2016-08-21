@@ -5,7 +5,7 @@ LEMONBAR_FIFO="/tmp/lemonbar_fifo"
 [ -e "$LEMONBAR_FIFO" ] && rm "$LEMONBAR_FIFO"
 mkfifo "$LEMONBAR_FIFO"
 
-FU="%{U#080808}"
+FU="%{U#08080b}"
 
 R="%{U-}"
 
@@ -101,4 +101,4 @@ title       > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#dbdbdb" -F "#080808" -U "#080808" -u 3 -f "DejaVu Sans:size=10" -f "Fontawesome:size=11"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#e7e8eB" -F "#08080b" -U "#08080b" -u 3 -f "DejaVu Sans:size=10" -f "Fontawesome:size=11"

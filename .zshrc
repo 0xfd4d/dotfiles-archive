@@ -57,6 +57,7 @@ alias random_commit='git commit -m "$(curl -s http://whatthecommit.com/index.txt
 alias lsblk='lsblk -o name,maj:min,size,ro,type,fstype,mountpoint,label,uuid'
 alias suspend='su -c "echo disk > /sys/power/state"'
 alias todo='vim /mnt/data/todo'
+alias xreload="xrdb -merge ~/dotfiles/.Xresources"
 
 h() {
   if [[ -z "$1" ]]; then
@@ -71,16 +72,6 @@ bindkey '^[[7~' beginning-of-line
 bindkey '^[[4~' end-of-line
 bindkey '^[[8~' end-of-line
 bindkey '^[[3~' delete-char
-
-export GOPATH="$HOME/dev/go"
-export PATH="$PATH:$HOME/dev/go/bin"
-export EDITOR="vim"
-export GREP_COLORS="mt=33"
-
-export PATH="$PATH:/sbin"
-export PATH="$PATH:/usr/sbin"
-
-export MANPAGER="env MAN_PN=1 vim +MANPAGER -"
 
 echo "Sacra Luna,
 In dies desperationis et cosmici maeroris
