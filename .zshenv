@@ -9,4 +9,4 @@ export GOPATH="$HOME/dev/go"
 export EDITOR="vim"
 export GREP_COLORS="mt=33"
 
-export MANPAGER="env MAN_PN=1 vim +MANPAGER -"
+export MANPAGER="env MAN_PN=1 vim +MANPAGER - "

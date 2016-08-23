@@ -1,15 +1,17 @@
-Xft.autohint: 0
+Xft.autohint: true
 Xft.dpi: 96
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
+Xft.hinting: true
+Xft.antialias: true
 Xft.rgba: rgb
 
 urxvt*title: terminal
 
 urxvt*font: xft:dejavu sans mono:size=10
 urxvt*boldFont:
+
+urxvt*letterSpace: -1
 
 urxvt*perl-ext-common: default,clipboard,url-select,font-size
 
@@ -68,5 +70,5 @@ urxvt*cursorUnderline: false
 *.color14:      #82a2b2
 
 ! white
-*.color7:       #8c8b8b
+*.color7:       #393838
 *.color15:      #b8b8c8

@@ -45,8 +45,6 @@ set softtabstop=4
 
 set scrolloff=10
 
-set clipboard=unnamedplus
-
 set hlsearch
 set incsearch
 set ignorecase

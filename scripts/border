@@ -4,7 +4,7 @@ update() {
     chwb3 -O 08080b  -I e7e8eb -i 3 -o 3 `bspc query -N -n .descendant_of.window`
 }
 
-sleep 5
+sleep 1
 
 bspc subscribe node_geometry node_focus | while read msg; do
     update 2> /dev/null

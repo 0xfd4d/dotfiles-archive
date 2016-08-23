@@ -10,7 +10,7 @@ redshift -l 59.9343:30.3351 &
 btsync &
 urxvtd &
 sxhkd &
-# ~/.fehbg
+mpd &
 
 ~/dotfiles/scripts/status &
 ~/dotfiles/scripts/border &
