@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 declare -i f=100 s=13 r=5000 t=50 c=30 n=0 l=30
 declare -ir w=$(tput cols) h=$(tput lines)

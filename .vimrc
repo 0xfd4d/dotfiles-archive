@@ -5,14 +5,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
-Plug 'gorodinskiy/vim-coloresque'
+" Plug 'gorodinskiy/vim-coloresque'
 Plug 'w0ng/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
-Plug 'shawncplus/phpcomplete.vim'
+" Plug 'shawncplus/phpcomplete.vim'
 Plug 'Shougo/neocomplete.vim'
 
 call plug#end()
@@ -53,9 +53,7 @@ set smartcase
 set wildmode=longest,list
 set wildmenu
 
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
+set clipboard=unnamedplus
 
 function! ReadOnly()
 if &readonly || !&modifiable
@@ -98,6 +96,14 @@ let g:go_list_type = "quickfix"
 
 let g:neocomplete#enable_at_startup = 1
 
+map <leader>cc :w !xsel -i -b<CR>
+map <leader>cp :w !xsel -i -p<CR>
+map <leader>cs :w !xsel -i -s<CR>
+
+map <leader>pp :r!xsel -p<CR>
+map <leader>ps :r!xsel -s<CR>
+map <leader>pb :r!xsel -b<CR>
+
 map <F2> :Explore<CR>
 
 inoremap jk <ESC>
@@ -112,14 +118,13 @@ set guioptions-=L
 
 set guifont=DejaVu\ Sans\ Mono\ 10
 
-set t_Co=256
 set background=dark
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 0
 colorscheme hybrid
 
 " Scheme override
-hi StatusLine ctermbg=0 ctermfg=0
+hi StatusLine ctermbg=0 ctermfg=4
 
 " Hightlight whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red

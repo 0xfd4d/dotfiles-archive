@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 LEMONBAR_FIFO="/tmp/lemonbar_fifo"
 
 [ -e "$LEMONBAR_FIFO" ] && rm "$LEMONBAR_FIFO"
 mkfifo "$LEMONBAR_FIFO"
 
-FU="%{U#08080b}"
+FU="%{U#e7e8eb}"
 
 R="%{U-}"
 
@@ -15,14 +15,14 @@ desktops() {
     while read -r line ; do
         [ $( echo $line | grep "^WM$MONITOR" ) ] || continue
         desktops=""
-        for e in $(echo $line | cut -d':' -f2-11 | tr ':' '\n')
+        for e in $(echo $line | cut -d':' -f2-10 | tr ':' '\n')
         do
             desktop=""
-            if [ "${e:0:1}" == "O" ]; then
+            if [[ "${e:0:1}" = "O" ]]; then
                 desktop="$FU%{+o} ${e:1} %{-o}$R"
-            elif [ "${e:0:1}" == "F" ]; then
+            elif [[ "${e:0:1}" == "F" ]]; then
                 desktop="$FU%{+o} ${e:1} %{-o}$R"
-            elif [ "${e:0:1}" == "o" ]; then
+            elif [[ "${e:0:1}" == "o" ]]; then
                 desktop=" ${e:1} "
             else
                 desktop=" ${e:1} "
@@ -54,7 +54,8 @@ printSong() {
     STATUS_1=$(mpc current 2> /dev/null)
     if [[ "$STATUS_1" != "" ]]; then
         STATUS_2=$(mpc | sed -n '2p')
-        if [[ "$STATUS_2" == *"paused"* ]]; then
+        if [[ $STATUS_2 == *"paused"* ]]
+        then
             echo "M"
         else
             echo "M$STATUS_1"
@@ -101,4 +102,4 @@ title       > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#e7e8eB" -F "#08080b" -U "#08080b" -u 3 -f "DejaVu Sans:size=10" -f "Fontawesome:size=12"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x25+0+0" -B "#08080b" -F "#e7e8eb" -U "#e7e8eb" -u 3 -f "DejaVu Sans:size=10" -f "Fontawesome:size=12"

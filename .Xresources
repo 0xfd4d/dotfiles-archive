@@ -9,14 +9,14 @@ Xft.rgba: rgb
 urxvt*title: terminal
 
 urxvt*font: xft:dejavu sans mono:size=10
-urxvt*boldFont:
+! urxvt*boldFont:
 
-urxvt*letterSpace: -1
-
-urxvt*perl-ext-common: default,clipboard,url-select,font-size
+urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
 
 urxvt*keysym.M-u: perl:url-select:select_next
 urxvt*url-select.launcher: xdg-open
+
+urxvt*keysym.M-d: perl:keyboard-select:activate
 
 urxvt*keysym.M-c: perl:clipboard:copy
 urxvt*keysym.M-v: perl:clipboard:paste
