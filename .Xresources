@@ -8,13 +8,12 @@ Xft.rgba: rgb
 
 urxvt*title: terminal
 
-urxvt*font: xft:dejavu sans mono:size=10
-! urxvt*boldFont:
+urxvt*font: xft:Terminus:size=10
 
 urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
 
 urxvt*keysym.M-u: perl:url-select:select_next
-urxvt*url-select.launcher: xdg-open
+urxvt*url-select.launcher: firefox
 
 urxvt*keysym.M-d: perl:keyboard-select:activate
 
@@ -58,8 +57,8 @@ urxvt*cursorUnderline: false
 *.color11:      #b28c55
 
 ! blue
-*.color4:       #58698c
-*.color12:      #7086b2
+*.color4:       #303850
+*.color12:      #4e5b82
 
 ! magenta
 *.color5:       #7b5e7d

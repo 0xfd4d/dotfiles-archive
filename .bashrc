@@ -35,7 +35,7 @@ export MANPAGER="env MAN_PN=1 vim +MANPAGER - "
 export EDITOR="vim"
 export GREP_COLORS="mt=33"
 
-export PS1="\[\033[1m\]\\$ \[\033[0m\]"
+export PS1="\h \[\033[1m\]\\$ \[\033[0m\]\w "
 export PS2="\[\033[1m\]> \[\033[0m\]"
 
 export PATH="$PATH:$HOME/dotfiles/bin"
@@ -57,4 +57,4 @@ Ad ipsa mortis.
 
 Gloria Lunae. Vivat aeterna Nox.
 
-\033[1mAmen."
+\033[1mAmen.\033[m"
