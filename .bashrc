@@ -1,3 +1,5 @@
+shopt -s extglob
+
 alias s='sudo'
 alias cal='cal -y -m'
 alias vol='alsamixer'

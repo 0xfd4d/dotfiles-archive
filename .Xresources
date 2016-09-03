@@ -8,7 +8,7 @@ Xft.rgba: rgb
 
 urxvt*title: terminal
 
-urxvt*font: xft:Terminus:size=10
+urxvt*font: xft:DejaVu Sans Mono:size=10
 
 urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
 
@@ -36,9 +36,9 @@ urxvt*cursorBlink: false
 urxvt*cursorUnderline: false
 
 ! special
-*.foreground:   #e7e8eb
+*.foreground:   #acacaf
 *.background:   #08080b
-*.cursorColor:  #e7e8eb
+*.cursorColor:  #acacaf
 
 ! black
 *.color0:       #08080b
@@ -69,5 +69,5 @@ urxvt*cursorUnderline: false
 *.color14:      #82a2b2
 
 ! white
-*.color7:       #393838
+*.color7:       #22222e
 *.color15:      #b8b8c8
