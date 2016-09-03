@@ -1,0 +1,2 @@
+#!/bin/bash
+feh --magick-timeout 5 --scale-down -d --image-bg black --sort mtime --recursive "$(dirname "$1")" --start-at "$1"

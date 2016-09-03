@@ -1,7 +1,0 @@
-#!/bin/sh
-#
-# volume="%{c}   %{+u}%{B#ff000000}$( amixer -c U5 set "Speaker" "$1" | grep "Front Left:" | awk '{print $6}' | tr -d '[]' ) %{B-}%{-u}"
-#
-# (echo $volume ; sleep 3) | lemonbar -g "66x20+1300+20" -d -f "DejaVu Sans:size=13" -B "#00000000" -F "#ffcccccc" -U "#ff2d3753" -u 2
-
-amixer -c U5 set "Speaker" "$1"

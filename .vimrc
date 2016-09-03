@@ -25,8 +25,6 @@ set mouse=a
 set laststatus=2
 set showcmd
 set showmode
-set expandtab
-set smarttab
 set shiftround
 set backspace=indent,eol,start
 set autoindent
@@ -39,9 +37,9 @@ set noswapfile
 set undofile
 set undolevels=500
 
-set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+set tabstop=4
+set noexpandtab
 
 set scrolloff=10
 
@@ -57,9 +55,9 @@ set clipboard=unnamedplus
 
 function! ReadOnly()
 if &readonly || !&modifiable
-    return '!'
+	return '!'
 else
-    return ''
+	return ''
 endfunction
 
 set statusline=
@@ -71,9 +69,9 @@ set statusline+=\ %{(&fenc!=''?&fenc:&enc)}\ %{&ff}\
 
 
 if exists("+undofile")
-  if isdirectory($HOME . '/.vim/undodir') == 0
-    :silent !mkdir -p ~/.vim/undodir > /dev/null 2>&1
-  endif
+	if isdirectory($HOME . '/.vim/undodir') == 0
+		:silent !mkdir -p ~/.vim/undodir > /dev/null 2>&1
+	endif
 endif
 
 set undodir=~/.vim/undodir

@@ -10,7 +10,7 @@ redshift -l 59.9343:30.3351 &
 ./.fehbg &
 urxvtd &
 
-~/dotfiles/scripts/status &
+statusbar &
 
 sxhkd &
 exec bspwm

@@ -24,11 +24,11 @@ alias feh='feh --magick-timeout 5 --scale-down -d --image-bg black'
 alias feha='feh --sort mtime --recursive'
 
 h() {
-  if [[ -z "$1" ]]; then
-    history
-  else
-    history | grep "$*"
-  fi
+	if [[ -z "$1" ]]; then
+		history
+	else
+		history | grep "$*"
+	fi
 }
 
 eval `dircolors $HOME/dotfiles/.dircolors`

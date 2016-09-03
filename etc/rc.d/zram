@@ -5,22 +5,22 @@
 
 case $1 in
 start)
-        memsize=`grep MemTotal /proc/meminfo | awk '{print $2}'`
-        memsize=`echo "$memsize*1024" | bc`
-        echo $memsize > /sys/block/zram0/disksize
-        /sbin/mkswap /dev/zram0
-        /sbin/swapon /dev/zram0 -p 10
+	memsize=`grep MemTotal /proc/meminfo | awk '{print $2}'`
+	memsize=`echo "$memsize*1024" | bc`
+	echo $memsize > /sys/block/zram0/disksize
+	/sbin/mkswap /dev/zram0
+	/sbin/swapon /dev/zram0 -p 10
 	;;
 stop)
-        /sbin/swapoff /dev/zram0
-        echo 1 > /sys/block/zram0/reset
+	/sbin/swapoff /dev/zram0
+	echo 1 > /sys/block/zram0/reset
 	;;
 restart)
 	$0 stop
 	$0 start
 	;;
 status)
-        cat /sys/block/zram0/stat
+	cat /sys/block/zram0/stat
 	;;
 *)
 	echo "usage: $0 [start|stop|restart|status]"
