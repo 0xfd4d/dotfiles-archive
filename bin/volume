@@ -1,2 +1,2 @@
 #!/bin/sh
-amixer -c U5 set "Speaker" "$1"
+amixer set "Speaker" "$1"

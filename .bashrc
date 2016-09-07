@@ -1,5 +1,8 @@
 shopt -s extglob
 
+HISTSIZE=-1
+HISTFILESIZE=-1
+
 alias s='sudo'
 alias cal='cal -y -m'
 alias vol='alsamixer'
@@ -20,7 +23,7 @@ alias xreload="xrdb -merge ~/dotfiles/.Xresources"
 alias rec='ffmpeg -f x11grab -s 1366x768 -an -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet'
 alias fastrec='ffmpeg -f x11grab -s 1366x768 -an -r 25 -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet'
 
-alias feh='feh --magick-timeout 5 --scale-down -d --image-bg black'
+alias feh='feh --scale-down -d --image-bg black'
 alias feha='feh --sort mtime --recursive'
 
 h() {

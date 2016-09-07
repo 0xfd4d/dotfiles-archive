@@ -24,10 +24,13 @@ urxvt*keysym.M-C-v: perl:clipboard:paste_escaped
 urxvt*keysym.C-Up: font-size:increase
 urxvt*keysym.C-Down: font-size:decrease
 
-urxvt*scrollBar: false
-
 urxvt*saveLines: 99999
 
+urxvt.internalBorder: 6
+
+urxvt*scrollBar: false
+
+urxvt.scrollstyle: plain
 urxvt*scrollTtyOutput: false
 urxvt*scrollWithBuffer: true
 urxvt*scrollTtyKeypress: true

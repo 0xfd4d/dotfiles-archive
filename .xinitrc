@@ -1,6 +1,4 @@
 #!/bin/sh
-setxkbmap -layout "us,ru" -option "grp:caps_toggle,grp_led:caps,compose:ralt"
-
 xrdb -merge ~/dotfiles/.Xresources
 xsetroot -cursor_name left_ptr
 

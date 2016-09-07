@@ -37,8 +37,8 @@ set noswapfile
 set undofile
 set undolevels=500
 
-set shiftwidth=4
 set tabstop=4
+set shiftwidth=4
 set noexpandtab
 
 set scrolloff=10
@@ -108,6 +108,10 @@ inoremap jk <ESC>
 
 " space bar un-highlights search
 noremap <silent> <Space> :silent noh<Bar>echo<CR>
+
+" insert new line without entering insert mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
 
 set guioptions-=m
 set guioptions-=T

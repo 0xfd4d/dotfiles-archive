@@ -140,8 +140,10 @@ super + {F9,F10,F11,F12}
 	mpc {toggle,stop,prev,next}
 
 # volume
-{XF86AudioRaiseVolume,XF86AudioLowerVolume}
-	volume 1{+,-}
+super + {F6,F7,F8}
+	volume {toggle,1-,1+}
+{XF86AudioLowerVolume,XF86AudioRaiseVolume}
+	volume {1-,1+}
 
 # screen
 {_,ctrl} + Print

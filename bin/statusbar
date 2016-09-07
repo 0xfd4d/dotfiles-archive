@@ -94,7 +94,7 @@ compose() {
 				clock="${line#?}"
 				;;
 		esac
-		echo " ${desktop}	${title}%{r}   ${music}   ${clock} "
+		echo " ${desktop}   ${title}%{r}   ${music}   ${clock} "
 	done
 }
 
