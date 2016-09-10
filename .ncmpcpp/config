@@ -6,11 +6,13 @@ header_visibility = "no"
 autocenter_mode = "yes"
 display_bitrate = "yes"
 
-progressbar_look =  "██▒"
-progressbar_color = black
-progressbar_elapsed_color = black
+progressbar_boldness = no
 
-main_window_color = white
+progressbar_look =  "██▒"
+progressbar_color = white
+progressbar_elapsed_color = white
+
+main_window_color = cyan
 main_window_highlight_color = blue
 active_column_color = blue
 

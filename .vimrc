@@ -21,7 +21,6 @@ syntax on
 filetype plugin on
 filetype indent on
 
-set mouse=a
 set laststatus=2
 set showcmd
 set showmode
@@ -126,7 +125,7 @@ let g:hybrid_reduced_contrast = 0
 colorscheme hybrid
 
 " Scheme override
-hi StatusLine ctermbg=0 ctermfg=4
+hi StatusLine ctermbg=0 ctermfg=7
 
 " Hightlight whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red

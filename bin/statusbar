@@ -5,8 +5,8 @@ LEMONBAR_FIFO="/tmp/lemonbar_fifo"
 [ -e "$LEMONBAR_FIFO" ] && rm "$LEMONBAR_FIFO"
 mkfifo "$LEMONBAR_FIFO"
 
-FU="%{U#303850}"
-FF="%{F#303850}"
+FU="%{U#22222e}"
+FF="%{F#22222e}"
 
 R="%{U-}%{F-}"
 
@@ -39,7 +39,7 @@ title() {
 	xtitle -s | \
 	while read -r title ; do
 		sleep 0.01
-		echo "T$FF$title$R"
+		echo "T$title"
 	done
 }
 
