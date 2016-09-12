@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
-" Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
 " Plug 'gorodinskiy/vim-coloresque'
@@ -86,8 +86,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_c_config_file = '.config_c'
-let g:syntastic_c_no_include_search = 1
+let g:syntastic_c_check_header = 1
+let g:syntastic_c_auto_refresh_includes = 1
+let g:syntastic_c_include_dirs = [ 'includes', 'headers' ]
 
 let g:go_list_type = "quickfix"
 

@@ -8,7 +8,11 @@ Xft.rgba: rgb
 
 urxvt*title: terminal
 
-urxvt*font: xft:DejaVu Sans Mono:size=10
+urxvt*buffered: true
+
+urxvt*font: xft:DejaVu Sans Mono:pixelsize=13
+
+urxvt*letterSpace: 0
 
 urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
 
@@ -26,7 +30,8 @@ urxvt*keysym.C-Down: font-size:decrease
 
 urxvt*saveLines: 99999
 
-urxvt.internalBorder: 6
+urxvt.internalBorder: 4
+urxvt.externalBorder: 0
 
 urxvt*scrollBar: false
 
