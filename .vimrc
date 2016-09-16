@@ -38,9 +38,11 @@ set undolevels=500
 
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set softtabstop=4
+set expandtab
 
-set scrolloff=10
+set listchars=tab:\¦\ ,trail:·,nbsp:░
+set list
 
 set hlsearch
 set incsearch
@@ -54,9 +56,9 @@ set clipboard=unnamedplus
 
 function! ReadOnly()
 if &readonly || !&modifiable
-	return '!'
+    return '!'
 else
-	return ''
+    return ''
 endfunction
 
 set statusline=
@@ -68,9 +70,9 @@ set statusline+=\ %{(&fenc!=''?&fenc:&enc)}\ %{&ff}\
 
 
 if exists("+undofile")
-	if isdirectory($HOME . '/.vim/undodir') == 0
-		:silent !mkdir -p ~/.vim/undodir > /dev/null 2>&1
-	endif
+    if isdirectory($HOME . '/.vim/undodir') == 0
+        :silent !mkdir -p ~/.vim/undodir > /dev/null 2>&1
+    endif
 endif
 
 set undodir=~/.vim/undodir
@@ -88,7 +90,6 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_c_check_header = 1
 let g:syntastic_c_auto_refresh_includes = 1
-let g:syntastic_c_include_dirs = [ 'includes', 'headers' ]
 
 let g:go_list_type = "quickfix"
 
@@ -110,8 +111,9 @@ inoremap jk <ESC>
 noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
 " insert new line without entering insert mode
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
+inoremap <S-Enter> <C-o>O
+nnoremap <S-Enter> O<Esc>j
+nnoremap <CR> o<Esc>k
 
 set guioptions-=m
 set guioptions-=T

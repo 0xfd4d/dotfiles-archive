@@ -27,11 +27,11 @@ alias feh='feh --scale-down -d --image-bg black'
 alias feha='feh --sort mtime --recursive'
 
 h() {
-	if [[ -z "$1" ]]; then
-		history
-	else
-		history | grep "$*"
-	fi
+    if [[ -z "$1" ]]; then
+        history
+    else
+        history | grep "$*"
+    fi
 }
 
 eval `dircolors $HOME/dotfiles/.dircolors`
@@ -46,6 +46,12 @@ export PS2="\[\033[1m\]> \[\033[0m\]"
 export PATH="$PATH:$HOME/dotfiles/bin"
 
 export GOPATH="$HOME/dev/go"
+
+case ${TERM} in
+  st*|rxvt*)
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s %s\007" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}";'" printf '\033[?1h\033=' >/dev/tty"
+    ;;
+esac
 
 echo -e "Sacra Luna,
 In dies desperationis et cosmici maeroris

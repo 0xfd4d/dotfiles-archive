@@ -11,96 +11,96 @@ FF="%{F#22222e}"
 R="%{U-}%{F-}"
 
 desktops() {
-	sleep 1
-	bspc subscribe | \
-	while read -r line ; do
-		[ $( echo $line | grep "^WM$MONITOR" ) ] || continue
-		desktops=""
-		for e in $(echo $line | cut -d':' -f2-10 | tr ':' '\n')
-			do
-			desktop=""
-			if [[ "${e:0:1}" = "O" ]]; then
-				desktop="$FF$FU%{+o} ${e:1} %{-o}$R"
-			elif [[ "${e:0:1}" == "F" ]]; then
-				desktop="$FF$FU%{+o} ${e:1} %{-o}$R"
-			elif [[ "${e:0:1}" == "o" ]]; then
-				desktop=" ${e:1} "
-			else
-				desktop=" ${e:1} "
-			fi
-			desktops="$desktops$desktop "
-		done
-		echo "D$desktops"
-	done
+    sleep 1
+    bspc subscribe | \
+    while read -r line ; do
+        [ $( echo $line | grep "^WM$MONITOR" ) ] || continue
+        desktops=""
+        for e in $(echo $line | cut -d':' -f2-10 | tr ':' '\n')
+            do
+            desktop=""
+            if [[ "${e:0:1}" = "O" ]]; then
+                desktop="$FF$FU%{+o} ${e:1} %{-o}$R"
+            elif [[ "${e:0:1}" == "F" ]]; then
+                desktop="$FF$FU%{+o} ${e:1} %{-o}$R"
+            elif [[ "${e:0:1}" == "o" ]]; then
+                desktop=" ${e:1} "
+            else
+                desktop=" ${e:1} "
+            fi
+            desktops="$desktops$desktop"
+        done
+        echo "D$desktops"
+    done
 }
 
 title() {
-	sleep 1
-	xtitle -s | \
-	while read -r title ; do
-		sleep 0.01
-		echo "T$title"
-	done
+    sleep 1
+    xtitle -s | \
+    while read -r title ; do
+        sleep 0.01
+        echo "T$title"
+    done
 }
 
 dateTime() {
-	while true; do
-		DATE=$(date "+%a %d %b %H:%M %p")
-		echo "C$DATE"
-		sleep 60
-	done
+    while true; do
+        DATE=$(date "+%a %d %b %H:%M %p")
+        echo "C$DATE"
+        sleep 60
+    done
 }
 
 printSong() {
-	STATUS_1=$(mpc current 2> /dev/null)
-	if [[ "$STATUS_1" != "" ]]; then
-		STATUS_2=$(mpc | sed -n '2p')
-		if [[ $STATUS_2 == *"paused"* ]]
-		then
-			echo "M"
-		else
-			echo "M$STATUS_1"
-		fi
-	else
-		echo "M"
-	fi
+    STATUS_1=$(mpc current 2> /dev/null)
+    if [[ "$STATUS_1" != "" ]]; then
+        STATUS_2=$(mpc | sed -n '2p')
+        if [[ $STATUS_2 == *"paused"* ]]
+        then
+            echo "M"
+        else
+            echo "M$STATUS_1"
+        fi
+    else
+        echo "M"
+    fi
 }
 
 music() {
-	while true; do
-		sleep 1
-		echo $(printSong)
-		mpc idleloop 2> /dev/null | \
-			while read -r line ; do
-				echo $(printSong)
-			done
-		sleep 5
-	done
+    while true; do
+        sleep 1
+        echo $(printSong)
+        mpc idleloop 2> /dev/null | \
+            while read -r line ; do
+                echo $(printSong)
+            done
+        sleep 5
+    done
 }
 
 compose() {
-	while read -r line; do
-		case $line in
-			D*)
-				desktop="${line#?}"
-				;;
-			T*)
-				title="${line#?}"
-				;;
-			M*)
-				music="${line#?}"
-				;;
-			C*)
-				clock="${line#?}"
-				;;
-		esac
-		echo " ${desktop}   ${title}%{r}   ${music}   ${clock} "
-	done
+    while read -r line; do
+        case $line in
+            D*)
+                desktop="${line#?}"
+                ;;
+            T*)
+                title="${line#?}"
+                ;;
+            M*)
+                music="${line#?}"
+                ;;
+            C*)
+                clock="${line#?}"
+                ;;
+        esac
+        echo " ${desktop}  ${title}%{r}  ${music}  ${clock} "
+    done
 }
 
-desktops	> "$LEMONBAR_FIFO" &
-title		> "$LEMONBAR_FIFO" &
-music		> "$LEMONBAR_FIFO" &
-dateTime	> "$LEMONBAR_FIFO" &
+desktops    > "$LEMONBAR_FIFO" &
+title       > "$LEMONBAR_FIFO" &
+music       > "$LEMONBAR_FIFO" &
+dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x28+0+0" -B "#08080b" -F "#acacaf" -U "#acacaf" -u 3 -f "DejaVu Sans:size=10" -f "Fontawesome:size=12"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x28+0+0" -B "#08080b" -F "#acacaf" -U "#acacaf" -u 3 -f "DejaVu Sans:pixelsize=13" -f "Fontawesome:pixelsize=14"
