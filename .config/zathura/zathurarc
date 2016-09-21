@@ -1,10 +1,14 @@
 set font "DejaVu Sans 10"
+
 set default-bg "#08080b"
 set default-fg "#acacaf"
-set statusbar-bg "#acacaf"
+
+set statusbar-bg "#22222e"
 set statusbar-fg "#08080b"
+
 set inputbar-bg "#08080b"
 set inputbar-fg "#dbdbdb"
+
 set completion-bg "#08080b"
 set completion-fg "#acacaf"
 set completion-highlight-bg "#acacaf"

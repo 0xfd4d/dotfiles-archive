@@ -13,7 +13,6 @@ alias grep='grep --color=auto'
 alias diff='diff --color'
 alias dir='dir --color'
 alias df='df -h'
-alias du='du -h --max-depth=1 | sort -h'
 alias random_commit='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
 alias lsblk='lsblk -o name,maj:min,size,ro,type,fstype,mountpoint,label,uuid'
 alias suspend='su -c "echo disk > /sys/power/state"'
@@ -23,7 +22,7 @@ alias xreload="xrdb -merge ~/dotfiles/.Xresources"
 alias rec='ffmpeg -f x11grab -s 1366x768 -an -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet'
 alias fastrec='ffmpeg -f x11grab -s 1366x768 -an -r 25 -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet'
 
-alias feh='feh --scale-down -d --image-bg black'
+alias feh='feh --scale-down -d --image-bg black --action1 ";echo %F | xsel -b"'
 alias feha='feh --sort mtime --recursive'
 
 h() {
@@ -36,7 +35,7 @@ h() {
 
 eval `dircolors $HOME/dotfiles/.dircolors`
 
-export MANPAGER="env MAN_PN=1 vim +MANPAGER - "
+export MANPAGER="vim +MANPAGER - "
 export EDITOR="vim"
 export GREP_COLORS="mt=33"
 
@@ -49,7 +48,7 @@ export GOPATH="$HOME/dev/go"
 
 case ${TERM} in
   st*|rxvt*)
-    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s %s\007" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}";'" printf '\033[?1h\033=' >/dev/tty"
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s %s\007" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}";'
     ;;
 esac
 

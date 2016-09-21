@@ -24,7 +24,7 @@ desktops() {
             elif [[ "${e:0:1}" == "F" ]]; then
                 desktop="$FF$FU%{+o} ${e:1} %{-o}$R"
             elif [[ "${e:0:1}" == "o" ]]; then
-                desktop=" ${e:1} "
+                desktop="%{+o} ${e:1} %{-o}"
             else
                 desktop=" ${e:1} "
             fi
@@ -38,8 +38,8 @@ title() {
     sleep 1
     xtitle -s | \
     while read -r title ; do
-        sleep 0.01
-        echo "T$title"
+        (sleep 0.1 ;\
+            echo "T$title")&
     done
 }
 
@@ -94,7 +94,7 @@ compose() {
                 clock="${line#?}"
                 ;;
         esac
-        echo " ${desktop}  ${title}%{r}  ${music}  ${clock} "
+        echo "${desktop} ${title}%{r} ${music}  ${clock} "
     done
 }
 

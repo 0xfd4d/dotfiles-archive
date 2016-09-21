@@ -5,7 +5,7 @@
 
 # terminal emulator
 super + {Return,KP_Enter}
-    st
+    urxvtc
 
 # program launcher
 super + space

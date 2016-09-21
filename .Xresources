@@ -10,9 +10,7 @@ urxvt*title: terminal
 
 urxvt*buffered: true
 
-urxvt*font: xft:DejaVu Sans Mono:pixelsize=13
-
-urxvt*letterSpace: 0
+urxvt*font: xft:Gohufont:pixelsize=14
 
 urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
 
