@@ -7,8 +7,8 @@
 
 @-moz-document regexp("https?://.*.(?!.*/embed)(youtube.com|googleapid.com|apis.google.com/u/).*") {
     *:not([type="button"]):not(button):not(img):not(span):not(i):not([class*="ytp"]):not([class*="player"]) {
-        background: #17181A !important;
-        color: #AAABAD !important;
+        background: #080808 !important;
+        color: #a0b19a !important;
     }
     * { box-shadow: 0 0 0 0 !important; border-radius: 0 !important; }
     

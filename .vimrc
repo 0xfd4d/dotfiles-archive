@@ -8,11 +8,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
-" Plug 'gorodinskiy/vim-coloresque'
 Plug 'w0ng/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
-" Plug 'shawncplus/phpcomplete.vim'
 Plug 'Shougo/neocomplete.vim'
 
 call plug#end()
@@ -122,13 +120,11 @@ set guioptions-=L
 
 set guifont=DejaVu\ Sans\ Mono\ 10
 
+set t_Co=8
 set background=dark
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 0
 colorscheme hybrid
-
-" Scheme override
-hi StatusLine ctermbg=0 ctermfg=7
 
 " Hightlight whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red

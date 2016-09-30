@@ -10,11 +10,9 @@ progressbar_boldness = no
 
 progressbar_look =  "██▒"
 progressbar_color = white
-progressbar_elapsed_color = white
+progressbar_elapsed_color = blue
 
-main_window_color = cyan
-main_window_highlight_color = blue
-active_column_color = blue
+main_window_color = white
 
 playlist_disable_highlight_delay = "0"
 message_delay_time = "1"

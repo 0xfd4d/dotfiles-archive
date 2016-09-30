@@ -5,11 +5,11 @@
 
 # terminal emulator
 super + {Return,KP_Enter}
-    urxvtc
+    urxvt
 
 # program launcher
 super + space
-    dmenu_run -q -nb "#08080b" -nf "#acacaf" -sb "#acacaf" -sf "#08080b" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "DejaVu Sans:size=10"
+    dmenu_run -q -nb "#a7a7a7" -nf "#080808" -sb "#080808" -sf "#a7a7a7" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "DejaVu Sans:size=10"
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -111,18 +111,18 @@ super + ctrl + space
 
 # expand the tiled space in the given direction
 super + alt + {h,j,k,l}
-    bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+    bspc node {@west -r -14,@south -r +14,@north -r -14,@east -r +14}
 
 # contract the tiled space in the given direction
 super + alt + shift + {h,j,k,l}
-    # bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+    # bspc node {@east -r -14,@north -r +14,@south -r -14,@west -r +14}
 
 #
 # pointer focus/move/resize
 #
 
 super + button{4-5}
-    bspc config window_gap $(expr $(bspc config window_gap) {+,-} 1)
+    bspc config window_gap $(expr $(bspc config window_gap) {+,-} 7)
 
 # move a floating window
 super + {Left,Down,Up,Right}

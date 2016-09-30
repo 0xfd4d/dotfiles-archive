@@ -7,22 +7,23 @@ alias s='sudo'
 alias cal='cal -y -m'
 alias vol='alsamixer'
 alias tmux='tmux attach || tmux new'
-alias ls="ls --color=auto"
-alias l='ls -lAh'
+alias ls="ls --group-directories-first --color=auto"
+alias l='ls -1'
+alias ll='ls -lAh'
 alias grep='grep --color=auto'
 alias diff='diff --color'
 alias dir='dir --color'
 alias df='df -h'
 alias random_commit='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
 alias lsblk='lsblk -o name,maj:min,size,ro,type,fstype,mountpoint,label,uuid'
-alias suspend='su -c "echo disk > /sys/power/state"'
+alias suspend='su -c "echo freeze > /sys/power/state"'
 alias todo='vim /mnt/data/todo'
 alias xreload="xrdb -merge ~/dotfiles/.Xresources"
 
 alias rec='ffmpeg -f x11grab -s 1366x768 -an -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet'
 alias fastrec='ffmpeg -f x11grab -s 1366x768 -an -r 25 -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet'
 
-alias feh='feh --scale-down -d --image-bg black --action1 ";echo %F | xsel -b"'
+alias feh='feh --scale-down -d --image-bg black --action1 "; readlink -f %F | xsel -b"'
 alias feha='feh --sort mtime --recursive'
 
 h() {
@@ -33,7 +34,7 @@ h() {
     fi
 }
 
-eval `dircolors $HOME/dotfiles/.dircolors`
+eval $(dircolors $HOME/dotfiles/.dircolors)
 
 export MANPAGER="vim +MANPAGER - "
 export EDITOR="vim"
@@ -46,11 +47,9 @@ export PATH="$PATH:$HOME/dotfiles/bin"
 
 export GOPATH="$HOME/dev/go"
 
-case ${TERM} in
-  st*|rxvt*)
-    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s %s\007" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}";'
-    ;;
-esac
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
 
 echo -e "Sacra Luna,
 In dies desperationis et cosmici maeroris
