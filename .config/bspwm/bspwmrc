@@ -3,7 +3,7 @@
 # row height - 14
 # internal border size - 4
 # 3 + 4 = 7 * 2 = 14
-bspc config border_width 3
+bspc config border_width 4
 bspc config window_gap 14
 
 # +1px on each border side
@@ -18,12 +18,13 @@ bspc config click_to_focus true
 bspc config focus_follows_pointer true
 
 bspc config single_monocle true
-bspc config borderless_monocle false
+bspc config borderless_monocle true
 bspc config gapless_monocle true
 
 bspc monitor -d      
 
-bspc rule -a "Firefox:Navigator" desktop=^1 follow=on border=off
+bspc rule -a "Firefox:Navigator" desktop=^1 follow=on
+bspc rule -a "chromium" desktop=^1 follow=on
 
 bspc rule -a Zathura desktop=^3 state=tiled follow=on
 
@@ -33,6 +34,3 @@ bspc rule -a mpv desktop=^4 follow=on
 bspc rule -a qemu-system-x86_64 desktop=^5 state=pseudo_tiled follow=on
 
 bspc rule -a Gimp desktop=^6 follow=on
-
-bspc desktop -f ^2
-urxvt -e sh -c "tmux attach || tmux new" &

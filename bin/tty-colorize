@@ -1,22 +1,22 @@
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
   /bin/echo -e "
-  \e]P008080b
+  \e]P0080808
   \e]P18c5760
   \e]P27b8c58
   \e]P38c6e43
   \e]P4303850
-  \e]P57b5e7d
+  \e]P59b859d
   \e]P666808c
-  \e]P722222e
-  \e]P8545466
+  \e]P7a7a7a7
+  \e]P85f5a60
   \e]P9b26f7a
   \e]PA9db270
   \e]PBb28c55
   \e]PC4e5b82
-  \e]PD9c77b2
+  \e]PD8e7a90
   \e]PE82a2b2
-  \e]PFb8b8c8
+  \e]PFdddddd
   "
   # get rid of artifacts
   clear

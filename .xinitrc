@@ -10,6 +10,7 @@ redshift -l 59.9343:30.3351 &
 
 statusbar &
 
-sxhkd &
+(sleep 2 ; bspc desktop -f ^2 && urxvt -e sh -c "tmux attach || tmux new" ) &
 
+sxhkd &
 exec bspwm

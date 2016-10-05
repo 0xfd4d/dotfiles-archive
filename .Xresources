@@ -19,8 +19,8 @@ urxvt*keysym.C-Down: font-size:decrease
 
 urxvt*saveLines: 1024
 
-urxvt.internalBorder: 4
-urxvt.externalBorder: 4
+urxvt.internalBorder: 7
+urxvt.externalBorder: 0
 
 urxvt*scrollBar: false
 

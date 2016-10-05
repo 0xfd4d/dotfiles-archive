@@ -5,13 +5,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
 Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neoinclude.vim'
 
 call plug#end()
 
@@ -76,6 +76,7 @@ endif
 set undodir=~/.vim/undodir
 
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#auto_comletion_start_length = 1
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)'
 let g:ctrlp_show_hidden = 1
@@ -129,4 +130,8 @@ colorscheme hybrid
 " Hightlight whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+
+hi TabLineFill ctermfg=15 ctermbg=15
+hi TabLine ctermfg=15 ctermbg=15
+hi TabLineSel ctermfg=black ctermbg=4
 

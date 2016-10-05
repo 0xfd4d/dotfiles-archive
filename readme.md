@@ -1,8 +1,8 @@
 # dotfiles
-
 ![](https://raw.githubusercontent.com/fd4d/dotfiles/master/s.png)
 
+# tmux
 ![](https://raw.githubusercontent.com/fd4d/dotfiles/master/s2.png)
 
-
-![](https://raw.githubusercontent.com/fd4d/dotfiles/master/bg.jpg)
+# bg
+![](https://raw.githubusercontent.com/fd4d/dotfiles/master/bg.png)
