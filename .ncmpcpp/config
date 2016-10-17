@@ -1,9 +1,9 @@
 song_list_format = "{%a - }{%t}|{$5%f$9}$R%l"
 
-cyclic_scrolling = yes
+/* cyclic_scrolling = yes */
 playlist_display_mode = classic
 header_visibility = "no"
-autocenter_mode = "yes"
+/* autocenter_mode = "yes" */
 display_bitrate = "yes"
 
 progressbar_boldness = no

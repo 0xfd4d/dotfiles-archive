@@ -9,7 +9,7 @@ super + {Return,KP_Enter}
 
 # program launcher
 super + space
-    dmenu_run -q -nb "#a7a7a7" -nf "#080808" -sb "#080808" -sf "#a7a7a7" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "DejaVu Sans:size=10"
+    dmenu_run -q -nb "#a7a7a7" -nf "#080808" -sb "#080808" -sf "#a7a7a7" -x 433 -y 243 -h 25 -w 500 -l 10 -fn "Ubuntu Mono:size=11"
 
 # make sxhkd reload its configuration files:
 super + Escape

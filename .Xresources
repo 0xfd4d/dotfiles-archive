@@ -1,7 +1,15 @@
+Xft.autohint: 1
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
 urxvt*title: terminal
 
-urxvt*font: xft:Gohufont:pixelsize=14
-urxvt*boldFont:
+urxvt*letterSpace: -1
+
+urxvt*font: xft:Dejavu Sans Mono:pixelsize=13
 
 urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
 
@@ -19,7 +27,7 @@ urxvt*keysym.C-Down: font-size:decrease
 
 urxvt*saveLines: 1024
 
-urxvt.internalBorder: 7
+urxvt.internalBorder: 2
 urxvt.externalBorder: 0
 
 urxvt*scrollBar: false

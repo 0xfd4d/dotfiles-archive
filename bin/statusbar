@@ -103,4 +103,4 @@ title       > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x26+0+0" -B "#080808" -F "#a7a7a7" -U "#a7a7a7" -u 3 -f "DejaVu Sans:pixelsize=13" -f "Fontawesome:pixelsize=14"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x29+0+0" -B "#080808" -F "#a7a7a7" -U "#a7a7a7" -u 3 -f "DejaVu Sans:pixelsize=13" -f "Fontawesome:pixelsize=14"

@@ -1,7 +1,10 @@
 shopt -s extglob
+shopt -s histappend
 
 HISTSIZE=-1
 HISTFILESIZE=-1
+HISTCONTROL="ignoreboth:erasedups"
+PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 
 alias s='sudo'
 alias cal='cal -y -m'
@@ -46,6 +49,8 @@ export PS2="\[\033[1m\]> \[\033[0m\]"
 export PATH="$PATH:$HOME/dotfiles/bin"
 
 export GOPATH="$HOME/dev/go"
+
+export MPD_HOST=/tmp/.mpd_socket
 
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
