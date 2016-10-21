@@ -121,7 +121,7 @@ set guioptions-=L
 
 set guifont=DejaVu\ Sans\ Mono\ 10
 
-set t_Co=8
+set t_Co=256
 set background=dark
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 0
@@ -131,7 +131,7 @@ colorscheme hybrid
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 
-hi TabLineFill ctermfg=15 ctermbg=15
-hi TabLine ctermfg=15 ctermbg=15
-hi TabLineSel ctermfg=black ctermbg=4
+hi TabLineFill ctermfg=grey ctermbg=grey
+hi TabLine ctermfg=grey ctermbg=black
+hi TabLineSel cterm=NONE ctermfg=black ctermbg=darkblue
 

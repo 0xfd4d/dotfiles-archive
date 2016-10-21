@@ -4,7 +4,6 @@ shopt -s histappend
 HISTSIZE=-1
 HISTFILESIZE=-1
 HISTCONTROL="ignoreboth:erasedups"
-PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 
 alias s='sudo'
 alias cal='cal -y -m'
@@ -39,7 +38,6 @@ h() {
 
 eval $(dircolors $HOME/dotfiles/.dircolors)
 
-export MANPAGER="vim +MANPAGER - "
 export EDITOR="vim"
 export GREP_COLORS="mt=33"
 

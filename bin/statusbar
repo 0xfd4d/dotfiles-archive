@@ -16,7 +16,7 @@ desktops() {
     while read -r line ; do
         [ $( echo $line | grep "^WM$MONITOR" ) ] || continue
         desktops=""
-        for e in $(echo $line | cut -d':' -f2-7 | tr ':' '\n')
+        for e in $(echo $line | cut -d':' -f2-11 | tr ':' '\n')
             do
             desktop=""
             if [[ "${e:0:1}" = "O" ]]; then
@@ -31,15 +31,6 @@ desktops() {
             desktops="$desktops$desktop"
         done
         echo "D$desktops"
-    done
-}
-
-title() {
-    sleep 1
-    xtitle -s | \
-    while read -r title ; do
-        (sleep 0.1 ;\
-            echo "T$title")&
     done
 }
 
@@ -84,9 +75,6 @@ compose() {
             D*)
                 desktop="${line#?}"
                 ;;
-            T*)
-                title="${line#?}"
-                ;;
             M*)
                 music="${line#?}"
                 ;;
@@ -99,7 +87,6 @@ compose() {
 }
 
 desktops    > "$LEMONBAR_FIFO" &
-title       > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 

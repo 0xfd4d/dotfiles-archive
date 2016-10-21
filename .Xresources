@@ -7,7 +7,7 @@ Xft.rgba: rgb
 
 urxvt*title: terminal
 
-urxvt*letterSpace: -1
+urxvt*letterSpace: 0
 
 urxvt*font: xft:Dejavu Sans Mono:pixelsize=13
 
@@ -27,7 +27,7 @@ urxvt*keysym.C-Down: font-size:decrease
 
 urxvt*saveLines: 1024
 
-urxvt.internalBorder: 2
+urxvt.internalBorder: 3
 urxvt.externalBorder: 0
 
 urxvt*scrollBar: false
@@ -37,8 +37,8 @@ urxvt*scrollTtyOutput: false
 urxvt*scrollWithBuffer: true
 urxvt*scrollTtyKeypress: true
 
-urxvt*cursorBlink: false
-urxvt*cursorUnderline: false
+urxvt*cursorBlink: true
+urxvt*cursorUnderline: true
 
 ! special
 *.foreground:   #a7a7a7

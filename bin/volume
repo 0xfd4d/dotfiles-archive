@@ -1,2 +1,3 @@
 #!/bin/sh
-amixer set "Master" "$1"
+amixer set Master "$1" -c MID > /dev/null 2>&1
+amixer set Speaker Front "$1" -c U5 > /dev/null 2>&1
