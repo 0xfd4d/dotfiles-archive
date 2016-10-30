@@ -59,12 +59,12 @@ else
     return ''
 endfunction
 
-set statusline=
-set statusline+=\ %{toupper(mode())}\ 
-set statusline+=\ %<%F\ %{ReadOnly()}\ %m\ 
-set statusline+=\ %=
-set statusline+=\ %y
-set statusline+=\ %{(&fenc!=''?&fenc:&enc)}\ %{&ff}\ 
+" set statusline=
+" set statusline+=\ %{toupper(mode())}\ 
+" set statusline+=\ %<%F\ %{ReadOnly()}\ %m\ 
+" set statusline+=\ %=
+" set statusline+=\ %y
+" set statusline+=\ %{(&fenc!=''?&fenc:&enc)}\ %{&ff}\ 
 
 
 if exists("+undofile")
@@ -92,8 +92,6 @@ let g:syntastic_c_auto_refresh_includes = 1
 
 let g:go_list_type = "quickfix"
 
-let g:neocomplete#enable_at_startup = 1
-
 map <leader>cc :w !xsel -i -b<CR>
 map <leader>cp :w !xsel -i -p<CR>
 map <leader>cs :w !xsel -i -s<CR>
@@ -119,7 +117,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 
-set guifont=DejaVu\ Sans\ Mono\ 10
+set guifont=monospace\ 10
 
 set t_Co=256
 set background=dark
@@ -130,6 +128,13 @@ colorscheme hybrid
 " Hightlight whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+
+hi StatusLine ctermfg=7 ctermbg=0
+hi StatusLineNC ctermfg=0 ctermbg=7
+
+hi LineNr ctermfg=grey ctermbg=NONE
+
+hi Visual ctermfg=black ctermbg=grey
 
 hi TabLineFill ctermfg=grey ctermbg=grey
 hi TabLine ctermfg=grey ctermbg=black

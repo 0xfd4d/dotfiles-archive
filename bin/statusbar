@@ -20,11 +20,11 @@ desktops() {
             do
             desktop=""
             if [[ "${e:0:1}" = "O" ]]; then
-                desktop="$FF$FU%{+o} ${e:1} %{-o}$R"
+                desktop="%{+o} ${e:1} %{-o}"
             elif [[ "${e:0:1}" == "F" ]]; then
+                desktop="%{+o} ${e:1} %{-o}"
+            elif [[ "${e:0:1}" == "u" ]]; then
                 desktop="$FF$FU%{+o} ${e:1} %{-o}$R"
-            elif [[ "${e:0:1}" == "o" ]]; then
-                desktop=" ${e:1} "
             else
                 desktop=" ${e:1} "
             fi
@@ -90,4 +90,4 @@ desktops    > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x29+0+0" -B "#080808" -F "#a7a7a7" -U "#a7a7a7" -u 3 -f "DejaVu Sans:pixelsize=13" -f "Fontawesome:pixelsize=14"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x27+0+0" -B "#111111" -F "#c3c7bf" -U "#c3c7bf" -u 3 -f "sans-serif:pixelsize=13" -f "monospace:pixelsize=13"

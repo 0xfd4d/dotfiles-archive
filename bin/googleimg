@@ -1,5 +1,5 @@
 #!/bin/sh
 url=`xsel -b`
-encoded=`python -c "import sys, urllib; print urllib.quote_plus(sys.argv[1])" "$url"`
+encoded=`python -c "import sys, urllib.parse; print(urllib.parse.quote_plus(sys.argv[1]))" "$url"`
 echo $encoded
 firefox "https://www.google.ru/searchbyimage?image_url=$encoded"

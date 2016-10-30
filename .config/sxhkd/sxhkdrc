@@ -9,7 +9,7 @@ super + {Return,KP_Enter}
 
 # program launcher
 super + space
-    dmenu_run -nb "#a7a7a7" -nf "#080808" -sb "#080808" -sf "#a7a7a7" -fn "Dejavu Sans:pixelsize=13" -l 10 -f -i -b
+    dmenu_run -nb "#111111" -nf "#c3c7bf" -sb "#c3c7bf" -sf "#111111" -fn "monospace:pixelsize=13" -l 10 -f -i -b
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -122,7 +122,7 @@ super + alt + shift + {h,j,k,l}
 #
 
 super + button{4-5}
-    bspc config window_gap $(expr $(bspc config window_gap) {+,-} 7)
+    bspc config window_gap $(expr $(bspc config window_gap) {+,-} 1)
 
 # move a floating window
 super + {Left,Down,Up,Right}

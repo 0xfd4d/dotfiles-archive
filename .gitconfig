@@ -3,8 +3,5 @@
     name = fd4d
 [color]
     ui = auto
-    diff = false
-[pager]
-    diff = vim -R -
 [diff]
     tool = vimdiff

@@ -26,12 +26,15 @@ bspc rule -a Subl3 desktop=^3 follow=on
 
 bspc rule -a Filezilla desktop=^4 follow=on
 bspc rule -a Zathura desktop=^4 state=tiled follow=on
+bspc rule -a Pcmanfm desktop=^4 follow=on
 
 bspc rule -a feh desktop=^5 follow=on
 bspc rule -a mpv desktop=^5 follow=on
 
-bspc rule -a qemu-system-x86_64 desktop=^6 state=pseudo_tiled follow=on
+bspc rule -a Ghetto\ Skype desktop=^6
 
-bspc rule -a Gimp desktop=^7 follow=on
-bspc rule -a MyPaint desktop=^7 follow=on
+bspc rule -a qemu-system-x86_64 desktop=^7 state=pseudo_tiled follow=on
+
+bspc rule -a Gimp desktop=^8 follow=on
+bspc rule -a MyPaint desktop=^8 follow=on
 

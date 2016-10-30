@@ -1,14 +1,10 @@
 song_list_format = "{%a - }{%t}|{$5%f$9}$R%l"
 
-/* cyclic_scrolling = yes */
-playlist_display_mode = classic
 header_visibility = "no"
-/* autocenter_mode = "yes" */
-display_bitrate = "yes"
 
 progressbar_boldness = no
 
-progressbar_look =  "██▒"
+progressbar_look =  "▒▒▒"
 progressbar_color = white
 progressbar_elapsed_color = blue
 

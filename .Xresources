@@ -1,17 +1,18 @@
-Xft.autohint: 1
+Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
 Xft.hinting: 1
 Xft.antialias: 1
+Xft.dpi: 96
 Xft.rgba: rgb
 
 urxvt*title: terminal
 
 urxvt*letterSpace: 0
 
-urxvt*font: xft:Dejavu Sans Mono:pixelsize=13
+urxvt*font: xft:monospace:pixelsize=13
 
-urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
+urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select
 
 urxvt*keysym.M-u: perl:url-select:select_next
 urxvt*url-select.launcher: firefox
@@ -21,9 +22,6 @@ urxvt*keysym.M-d: perl:keyboard-select:activate
 urxvt*keysym.M-c: perl:clipboard:copy
 urxvt*keysym.M-v: perl:clipboard:paste
 urxvt*keysym.M-C-v: perl:clipboard:paste_escaped
-
-urxvt*keysym.C-Up: font-size:increase
-urxvt*keysym.C-Down: font-size:decrease
 
 urxvt*saveLines: 1024
 
@@ -37,16 +35,16 @@ urxvt*scrollTtyOutput: false
 urxvt*scrollWithBuffer: true
 urxvt*scrollTtyKeypress: true
 
-urxvt*cursorBlink: true
-urxvt*cursorUnderline: true
+urxvt*cursorBlink: false
+urxvt*cursorUnderline: false
 
 ! special
-*.foreground:   #a7a7a7
-*.background:   #080808
-*.cursorColor:  #a7a7a7
+*.foreground:   #c3c7bf
+*.background:   #111111
+*.cursorColor:  #c3c7bf
 
 ! black
-*.color0:       #080808
+*.color0:       #111111
 *.color8:       #5f5a60
 
 ! red
@@ -66,14 +64,13 @@ urxvt*cursorUnderline: true
 *.color12:      #4e5b82
 
 ! magenta
-*.color5:       #9b859d
-*.color13:      #8e7a90
+*.color5:       #8e7a90
+*.color13:      #9b859d
 
 ! cyan
 *.color6:       #66808c
 *.color14:      #82a2b2
 
 ! white
-*.color7:       #a7a7a7
-*.color15:      #dddddd
-
+*.color7:       #c3c7bf
+*.color15:      #c3c7bf
