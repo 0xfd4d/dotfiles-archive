@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
 LEMONBAR_FIFO="/tmp/lemonbar_fifo"
 
 [ -e "$LEMONBAR_FIFO" ] && rm "$LEMONBAR_FIFO"
 mkfifo "$LEMONBAR_FIFO"
 
-FU="%{U#303850}"
-FF="%{F#303850}"
+FC=$(xrdb -query | grep background | awk '{print $2}')
+
+FU="%{U$FC}"
+FF="%{F$FC}"
 
 R="%{U-}%{F-}"
 
@@ -36,7 +38,7 @@ desktops() {
 
 dateTime() {
     while true; do
-        DATE=$(date "+%a %d %b %H:%M %p")
+        DATE=$(date "+%a %d %b %H:%M")
         echo "C$DATE"
         sleep 60
     done
@@ -90,4 +92,4 @@ desktops    > "$LEMONBAR_FIFO" &
 music       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x27+0+0" -B "#111111" -F "#c3c7bf" -U "#c3c7bf" -u 3 -f "sans-serif:pixelsize=13" -f "monospace:pixelsize=13"
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x27+0+0" -B $(xrdb -query | grep background | awk '{print $2}') -F $(xrdb -query | grep foreground | awk '{print $2}')  -U $(xrdb -query | grep foreground | awk '{print $2}') -u 3 -f "sans-serif:pixelsize=13" -f "monospace:pixelsize=13"

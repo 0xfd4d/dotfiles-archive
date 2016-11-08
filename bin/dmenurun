@@ -1,0 +1,3 @@
+#!/bin/sh
+
+dmenu_run -nb "$(xrdb -query | grep background | awk '{print $2}')" -nf "$(xrdb -query | grep foreground | awk '{print $2}')" -sb "$(xrdb -query | grep foreground | awk '{print $2}')" -sf "$(xrdb -query | grep background | awk '{print $2}')" -fn "monospace:pixelsize=13" -l 10 -f -i -b

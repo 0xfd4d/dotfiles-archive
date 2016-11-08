@@ -9,8 +9,7 @@ super + {Return,KP_Enter}
 
 # program launcher
 super + space
-    dmenu_run -nb "#111111" -nf "#c3c7bf" -sb "#c3c7bf" -sf "#111111" -fn "monospace:pixelsize=13" -l 10 -f -i -b
-
+    dmenurun
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
@@ -151,4 +150,4 @@ super + {F6,F7,F8}
 
 # shortcuts
 super + {F1,F5}
-    {firefox,googleimg}
+    {firefox > /dev/null 2>&1,googleimg}

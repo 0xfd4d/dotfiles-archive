@@ -8,7 +8,7 @@ Xft.rgba: rgb
 
 urxvt*title: terminal
 
-urxvt*letterSpace: 0
+urxvt*letterSpace: -1
 
 urxvt*font: xft:monospace:pixelsize=13
 
@@ -25,7 +25,7 @@ urxvt*keysym.M-C-v: perl:clipboard:paste_escaped
 
 urxvt*saveLines: 1024
 
-urxvt.internalBorder: 3
+urxvt.internalBorder: 0
 urxvt.externalBorder: 0
 
 urxvt*scrollBar: false
@@ -39,38 +39,38 @@ urxvt*cursorBlink: false
 urxvt*cursorUnderline: false
 
 ! special
-*.foreground:   #c3c7bf
-*.background:   #111111
-*.cursorColor:  #c3c7bf
+*.foreground:   #d3d3d3
+*.background:   #000000
+*.cursorColor:  #d3d3d3
 
 ! black
-*.color0:       #111111
-*.color8:       #5f5a60
+*.color0:       #201e24
+*.color8:       #837c78
 
 ! red
-*.color1:       #8c5760
-*.color9:       #b26f7a
+*.color1:       #2d2b30
+*.color9:       #89827d
 
 ! green
-*.color2:       #7b8c58
-*.color10:      #9db270
+*.color2:       #3f3d40
+*.color10:      #a7a099
 
 ! yellow
-*.color3:       #8c6e43
-*.color11:      #b28c55
+*.color3:       #413c3e
+*.color11:      #c2bec1
 
 ! blue
-*.color4:       #303850
-*.color12:      #4e5b82
+*.color4:       #423e41
+*.color12:      #c3bcb2
 
 ! magenta
-*.color5:       #8e7a90
-*.color13:      #9b859d
+*.color5:       #4e4a4b
+*.color13:      #cbc5ba
 
 ! cyan
-*.color6:       #66808c
-*.color14:      #82a2b2
+*.color6:       #6e6765
+*.color14:      #e3ddd2
 
 ! white
-*.color7:       #c3c7bf
-*.color15:      #c3c7bf
+*.color7:       #837e81
+*.color15:      #efe8dc

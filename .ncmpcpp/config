@@ -1,12 +1,10 @@
-song_list_format = "{%a - }{%t}|{$5%f$9}$R%l"
-
 header_visibility = "no"
 
 progressbar_boldness = no
 
 progressbar_look =  "▒▒▒"
-progressbar_color = white
-progressbar_elapsed_color = blue
+progressbar_color = black
+progressbar_elapsed_color = white
 
 main_window_color = white
 
