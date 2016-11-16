@@ -6,11 +6,14 @@ Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
+Xcursor.theme: DMZ-White
+
 urxvt*title: terminal
 
 urxvt*letterSpace: -1
 
 urxvt*font: xft:monospace:pixelsize=13
+urxvt*boldFont:
 
 urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select
 
@@ -25,7 +28,7 @@ urxvt*keysym.M-C-v: perl:clipboard:paste_escaped
 
 urxvt*saveLines: 1024
 
-urxvt.internalBorder: 0
+urxvt.internalBorder: 1
 urxvt.externalBorder: 0
 
 urxvt*scrollBar: false

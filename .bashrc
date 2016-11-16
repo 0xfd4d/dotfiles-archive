@@ -37,7 +37,6 @@ eval $(dircolors $HOME/dotfiles/.dircolors)
 export EDITOR="vim"
 export GREP_COLORS="mt=33"
 
-# export PS1="\h \[\033[1m\]\\$ \[\033[0m\]\w "
 export PS1="\[\033[1m\]\\$ \[\033[0m\]\w "
 export PS2="\[\033[1m\]> \[\033[0m\]"
 

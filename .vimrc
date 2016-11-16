@@ -50,6 +50,8 @@ set smartcase
 set wildmode=longest,list
 set wildmenu
 
+set mouse=a
+
 set clipboard=unnamedplus
 
 function! ReadOnly()

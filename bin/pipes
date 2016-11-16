@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -i f=100 s=13 r=5000 t=50 c=30 n=0 l=30
+declare -i f=100 s=13 r=500000 t=50 c=30 n=0 l=30
 declare -ir w=$(tput cols) h=$(tput lines)
 declare -i x=$((w/2)) y=$((h/2))
 declare -ar v=( [00]="\x83" [01]="\x8f" [03]="\x93"
