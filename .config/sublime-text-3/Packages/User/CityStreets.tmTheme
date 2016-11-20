@@ -19,7 +19,7 @@
 		<key>foreground</key>
 		<string>#d3d3d3</string>
 		<key>selectionBackground</key>
-		<string>#201e24</string>
+		<string>#000000</string>
 		<key>selectionForeground</key>
 		<string>#efe8dc</string>
 	</dict>
@@ -500,7 +500,7 @@
 				<key>background</key>
 				<string>#837c78</string>
 				<key>foreground</key>
-				<string>#201e24</string>
+				<string>#000000</string>
 			</dict>
 		</dict>
 	</array>

@@ -11,7 +11,11 @@ bspc config presel_feedback_color \#5f5a60
 bspc config click_to_focus true
 bspc config focus_follows_pointer true
 
-bspc config honor_size_hints true
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config single_monocle true
+
+bspc config honor_size_hints false
 
 bspc monitor -d α β γ δ ε ϛ ζ η θ ι
 
@@ -21,6 +25,7 @@ bspc rule -a "chromium" desktop=^1 follow=on
 bspc rule -a Subl3 desktop=^3 follow=on
 bspc rule -a Sublime_text desktop=^3 follow=on
 bspc rule -a Bless desktop=^3 state=tiled follow=on
+bspc rule -a "*:libreoffice" desktop=^3 follow=on
 
 bspc rule -a Filezilla desktop=^4 follow=on
 bspc rule -a Zathura desktop=^4 state=tiled follow=on

@@ -145,12 +145,15 @@ super + {F6,F7,F8}
     volume {1-,1+}
 
 super + F4
-    notify-send "$(date '+%a %d %b %H:%M')"
+    notify-send "Date" "$(date '+%a %d %b %H:%M')"
 
 # screen
-{_,ctrl} + Print
-    FILE_NAME="s$(date +%s%N).png" ; import {-window root,_} /tmp/$FILE_NAME && cp /tmp/$FILE_NAME ~/s.png
+Print
+    FILE_NAME="s$(date +%s%N).png" ; ffmpeg -f x11grab -video_size 1366x768 -i $DISPLAY -vframes 1 /tmp/$FILE_NAME -y && cp /tmp/$FILE_NAME ~/s.png
+
+ctrl + Print
+    FILE_NAME="s$(date +%s%N).png" ; import /tmp/$FILE_NAME && cp /tmp/$FILE_NAME ~/s.png
 
 # shortcuts
 super + {F1,F5}
-    {firefox > /dev/null 2>&1,googleimg}
+    {x-www-browser > /dev/null 2>&1,googleimg}

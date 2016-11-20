@@ -1,4 +1,4 @@
-Xft.autohint: 0
+Xft.autohint: 1
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
 Xft.hinting: 1
@@ -8,38 +8,37 @@ Xft.rgba: rgb
 
 Xcursor.theme: DMZ-White
 
-urxvt*title: terminal
+urxvt.title: terminal
 
-urxvt*letterSpace: -1
+urxvt.letterSpace: -1
 
-urxvt*font: xft:monospace:pixelsize=13
-urxvt*boldFont:
+urxvt.font: xft:monospace:size=10
 
-urxvt*perl-ext-common: default,clipboard,url-select,keyboard-select
+urxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 
-urxvt*keysym.M-u: perl:url-select:select_next
-urxvt*url-select.launcher: firefox
+urxvt.keysym.M-u: perl:url-select:select_next
+urxvt.url-select.launcher: firefox
 
-urxvt*keysym.M-d: perl:keyboard-select:activate
+urxvt.keysym.M-d: perl:keyboard-select:activate
 
-urxvt*keysym.M-c: perl:clipboard:copy
-urxvt*keysym.M-v: perl:clipboard:paste
-urxvt*keysym.M-C-v: perl:clipboard:paste_escaped
+urxvt.keysym.M-c: perl:clipboard:copy
+urxvt.keysym.M-v: perl:clipboard:paste
+urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
-urxvt*saveLines: 1024
+urxvt.saveLines: 1024
 
-urxvt.internalBorder: 1
+urxvt.internalBorder: 3
 urxvt.externalBorder: 0
 
-urxvt*scrollBar: false
+urxvt.scrollBar: false
 
 urxvt.scrollstyle: plain
-urxvt*scrollTtyOutput: false
-urxvt*scrollWithBuffer: true
-urxvt*scrollTtyKeypress: true
+urxvt.scrollTtyOutput: false
+urxvt.scrollWithBuffer: true
+urxvt.scrollTtyKeypress: true
 
-urxvt*cursorBlink: false
-urxvt*cursorUnderline: false
+urxvt.cursorBlink: false
+urxvt.cursorUnderline: false
 
 ! special
 *.foreground:   #d3d3d3
@@ -47,7 +46,8 @@ urxvt*cursorUnderline: false
 *.cursorColor:  #d3d3d3
 
 ! black
-*.color0:       #201e24
+!
+*.color0:       #000000
 *.color8:       #837c78
 
 ! red
