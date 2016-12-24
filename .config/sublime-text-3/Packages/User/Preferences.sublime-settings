@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/User/CityStreets.tmTheme",
+	"color_scheme": "Packages/User/GreyScale.tmTheme",
 	"default_line_ending": "unix",
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "monospace",
@@ -10,8 +10,8 @@
 	],
 	"overlay_scroll_bars": "enabled",
 	"tab_size": 4,
-	"theme": "Spacegray Eighties.sublime-theme",
-	"translate_tabs_to_spaces": false,
+	"theme": "Default.sublime-theme",
+	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": "true"
 }

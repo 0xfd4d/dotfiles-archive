@@ -10,8 +10,8 @@ Plug 'mattn/emmet-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
-Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/neoinclude.vim'
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neoinclude.vim'
 
 call plug#end()
 
@@ -89,8 +89,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_c_check_header = 1
-let g:syntastic_c_auto_refresh_includes = 1
+" let g:syntastic_c_check_header = 1
+" let g:syntastic_c_auto_refresh_includes = 1
 
 let g:go_list_type = "quickfix"
 
@@ -114,6 +114,9 @@ inoremap <S-Enter> <C-o>O
 nnoremap <S-Enter> O<Esc>j
 nnoremap <CR> o<Esc>k
 
+" sort words in line
+vnoremap <F3> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
+
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
@@ -136,9 +139,9 @@ hi StatusLineNC ctermfg=0 ctermbg=7
 
 hi LineNr ctermfg=grey ctermbg=NONE
 
-hi Visual ctermfg=black ctermbg=grey
+hi Visual ctermfg=0 ctermbg=7
 
-hi TabLineFill ctermfg=grey ctermbg=grey
-hi TabLine ctermfg=grey ctermbg=black
-hi TabLineSel cterm=NONE ctermfg=black ctermbg=darkblue
+hi TabLineFill ctermfg=0 ctermbg=1
+hi TabLine ctermfg=0 ctermbg=7
+hi TabLineSel cterm=NONE ctermfg=black ctermbg=7
 

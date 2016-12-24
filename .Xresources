@@ -1,16 +1,14 @@
-Xft.autohint: 1
+Xft.autohint: 0
 Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintlight
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
-Xcursor.theme: DMZ-White
+Xcursor.theme: Adwaita
 
 urxvt.title: terminal
-
-urxvt.letterSpace: -1
 
 urxvt.font: xft:monospace:size=10
 
@@ -27,7 +25,7 @@ urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 urxvt.saveLines: 1024
 
-urxvt.internalBorder: 3
+urxvt.internalBorder: 1
 urxvt.externalBorder: 0
 
 urxvt.scrollBar: false
@@ -40,40 +38,7 @@ urxvt.scrollTtyKeypress: true
 urxvt.cursorBlink: false
 urxvt.cursorUnderline: false
 
-! special
-*.foreground:   #d3d3d3
-*.background:   #000000
-*.cursorColor:  #d3d3d3
+#include ".Xresources.d/greyscale"
 
-! black
-!
-*.color0:       #000000
-*.color8:       #837c78
-
-! red
-*.color1:       #2d2b30
-*.color9:       #89827d
-
-! green
-*.color2:       #3f3d40
-*.color10:      #a7a099
-
-! yellow
-*.color3:       #413c3e
-*.color11:      #c2bec1
-
-! blue
-*.color4:       #423e41
-*.color12:      #c3bcb2
-
-! magenta
-*.color5:       #4e4a4b
-*.color13:      #cbc5ba
-
-! cyan
-*.color6:       #6e6765
-*.color14:      #e3ddd2
-
-! white
-*.color7:       #837e81
-*.color15:      #efe8dc
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0000/ef00

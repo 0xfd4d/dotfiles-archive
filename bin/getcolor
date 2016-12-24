@@ -1,6 +1,6 @@
 #!/bin/sh
 
-eval $(getmouselocation)
+eval $(getmouselocation | tail -n1)
 IMAGE=`import -window root -depth 8 -crop 1x1+$X+$Y txt:-`
 COLOR=`echo $IMAGE | grep -om1 '#\w\+'`
 echo -n $COLOR | xsel -b

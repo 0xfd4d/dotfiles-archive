@@ -1,14 +1,4 @@
-header_visibility = "no"
-
-progressbar_boldness = no
-
-progressbar_look =  "▒▒▒"
-progressbar_color = black
-progressbar_elapsed_color = white
-
-main_window_color = white
-
+progressbar_look =  "── "
 autocenter_mode = "yes"
-
-playlist_disable_highlight_delay = "0"
-message_delay_time = "1"
+external_editor = "vim"
+mpd_music_dir = "/mnt/data/music"

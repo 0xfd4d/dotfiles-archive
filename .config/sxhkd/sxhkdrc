@@ -155,5 +155,5 @@ ctrl + Print
     FILE_NAME="s$(date +%s%N).png" ; import /tmp/$FILE_NAME && cp /tmp/$FILE_NAME ~/s.png
 
 # shortcuts
-super + {F1,F5}
-    {x-www-browser > /dev/null 2>&1,googleimg}
+super + {F1,F2,F5}
+    {firefox > /dev/null 2>&1,chromium --proxy-server="socks5://127.0.0.1:9050" > /dev/null 2>&1,googleimg}

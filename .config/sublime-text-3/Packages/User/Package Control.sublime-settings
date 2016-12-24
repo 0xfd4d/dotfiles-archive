@@ -6,12 +6,12 @@
 	"installed_packages":
 	[
 		"All Autocomplete",
-		"Colorsublime",
+		"DocBlockr",
 		"Emmet",
 		"GitGutter",
 		"Package Control",
-		"Theme - Spacegray",
 		"TrailingSpaces",
+		"Twig",
 		"VintageES"
 	]
 }
