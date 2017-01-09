@@ -1,0 +1,3 @@
+#!/bin/sh
+
+notify-send "ncmpcpp" "$(mpc current)"

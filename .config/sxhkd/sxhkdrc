@@ -136,7 +136,7 @@ super + shift + button1
 
 # mpd cotrol
 super + {F9,F10,F11,F12}
-    mpc {toggle,stop,prev,next}
+    mpc {toggle,stop,prev,next} &> /dev/null
 
 # volume
 super + {F6,F7,F8}
@@ -145,7 +145,7 @@ super + {F6,F7,F8}
     volume {1-,1+}
 
 super + F4
-    notify-send "Date" "$(date '+%a %d %b %H:%M')"
+    notify-send "$(date '+%a %d %b %H:%M')"
 
 # screen
 Print
@@ -156,4 +156,4 @@ ctrl + Print
 
 # shortcuts
 super + {F1,F2,F5}
-    {firefox > /dev/null 2>&1,chromium --proxy-server="socks5://127.0.0.1:9050" > /dev/null 2>&1,googleimg}
+    {firefox-bin > /dev/null 2>&1,chromium > /dev/null 2>&1,googleimg}

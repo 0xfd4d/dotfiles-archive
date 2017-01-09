@@ -5,13 +5,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
+Plug 'lumiliet/vim-twig'
 Plug 'fatih/vim-go'
-" Plug 'Shougo/neocomplete.vim'
-" Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'StanAngeloff/php.vim'
 
 call plug#end()
 
@@ -145,3 +145,12 @@ hi TabLineFill ctermfg=0 ctermbg=1
 hi TabLine ctermfg=0 ctermbg=7
 hi TabLineSel cterm=NONE ctermfg=black ctermbg=7
 
+function! PhpSyntaxOverride()
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
+augroup END

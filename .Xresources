@@ -15,7 +15,7 @@ urxvt.font: xft:monospace:size=10
 urxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 
 urxvt.keysym.M-u: perl:url-select:select_next
-urxvt.url-select.launcher: firefox
+urxvt.url-select.launcher: firefox-bin
 
 urxvt.keysym.M-d: perl:keyboard-select:activate
 
@@ -38,7 +38,7 @@ urxvt.scrollTtyKeypress: true
 urxvt.cursorBlink: false
 urxvt.cursorUnderline: false
 
-#include ".Xresources.d/greyscale"
+#include ".Xresources.d/dawn"
 
 urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0000/ef00
+urxvt*background: rgba:0000/0000/0000/e700
