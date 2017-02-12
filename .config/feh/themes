@@ -1,0 +1,3 @@
+feh -D -5 --scale-down --image-bg black --action1 "; readlink -n -f %F | xsel -b" -C /usr/share/fonts/croscorefonts/ -e Arimo-Regular/9 -M Arimo-Regular/9
+
+fehr -D -5 --scale-down --image-bg black --action1 "; readlink -n -f %F | xsel -b" -C /usr/share/fonts/croscorefonts/ -e Arimo-Regular/9 -M Arimo-Regular/9 --sort mtime --recursive

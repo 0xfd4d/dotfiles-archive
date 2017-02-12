@@ -1,0 +1,110 @@
+#!/bin/bash
+
+LEMONBAR_FIFO="/tmp/lemonbar_fifo"
+
+[ -e "$LEMONBAR_FIFO" ] && rm "$LEMONBAR_FIFO"
+mkfifo "$LEMONBAR_FIFO"
+
+C1="$(xrdb -query | grep color0:  | awk '{print $2}')"
+C2="$(xrdb -query | grep color7:  | awk '{print $2}')"
+
+C="%{B$C2}%{F$C1}"
+
+R="%{B-}%{F-}"
+
+desktops() {
+    sleep 1
+    bspc subscribe | \
+    while read -r line ; do
+        [ $( echo $line | grep "^WM$MONITOR" ) ] || continue
+        desktops=""
+        for e in $(echo $line | cut -d':' -f2-10 | tr ':' '\n')
+            do
+            desktop=""
+            if [[ "${e:0:1}" = "O" ]]; then
+                desktop="$C ${e:1} $R"
+            elif [[ "${e:0:1}" == "F" ]]; then
+                desktop="$C ${e:1} $R"
+            elif [[ "${e:0:1}" == "o" ]]; then
+                desktop=" ${e:1} "
+            else
+                desktop=" ${e:1} "
+            fi
+            desktops="$desktops$desktop "
+        done
+        sleep 0.025
+        echo "D$desktops"
+    done
+}
+
+# title() {
+#     sleep 1
+#     xtitle -s | \
+#     while read -r title ; do
+#         sleep 0.025
+#         echo "T$title"
+#     done
+# }
+
+dateTime() {
+    while true; do
+        DATE=$(date '+%H:%M %a %d %b')
+        echo "C$C $DATE $R"
+        sleep 15
+    done
+}
+
+# printSong() {
+#     STATUS_1=$(mpc current 2> /dev/null)
+#     if [[ "$STATUS_1" != "" ]]; then
+#         STATUS_2=$(mpc | sed -n '2p')
+#         if [[ $STATUS_2 == *"paused"* ]]
+#         then
+#             echo "M"
+#         else
+#             echo "M$STATUS_1"
+#         fi
+#     else
+#         echo "M"
+#     fi
+# }
+
+# music() {
+#   while true; do
+#       sleep 1
+#       echo $(printSong)
+#       mpc idleloop 2> /dev/null | \
+#           while read -r line ; do
+#               echo $(printSong)
+#           done
+#       sleep 5
+#   done
+# }
+
+compose() {
+    while read -r line; do
+        case $line in
+            D*)
+                desktop="${line#?}"
+                ;;
+            # T*)
+            #     title="${line#?}"
+            #     ;;
+            # M*)
+            #     music="${line#?}"
+            #     ;;
+            C*)
+                clock="${line#?}"
+                ;;
+        esac
+        echo "${desktop}   ${title}%{r} ${music}   ${clock}"
+    done
+}
+
+desktops    > "$LEMONBAR_FIFO" &
+# title       > "$LEMONBAR_FIFO" &
+# music     > "$LEMONBAR_FIFO" &
+dateTime    > "$LEMONBAR_FIFO" &
+
+
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1362x12+0+0" -B "$C1" -F "$C2" -f "fixed:size=9" LVDS-0

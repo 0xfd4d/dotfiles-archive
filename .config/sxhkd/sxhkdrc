@@ -147,6 +147,10 @@ super + {F6,F7,F8}
 super + F4
     notify-send "$(date '+%a %d %b %H:%M')"
 
+# something
+super + KP_Insert
+    wall
+
 # screen
 Print
     FILE_NAME="s$(date +%s%N).png" ; ffmpeg -f x11grab -video_size 1366x768 -i $DISPLAY -vframes 1 /tmp/$FILE_NAME -y && cp /tmp/$FILE_NAME ~/s.png
@@ -155,5 +159,5 @@ ctrl + Print
     FILE_NAME="s$(date +%s%N).png" ; import /tmp/$FILE_NAME && cp /tmp/$FILE_NAME ~/s.png
 
 # shortcuts
-super + {F1,F2,F5}
-    {firefox-bin > /dev/null 2>&1,chromium > /dev/null 2>&1,googleimg}
+super + {F1,F5}
+    {exec palemoon &> /dev/null 2>&1,googleimg}

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-dmenu_run -nb "$(xrdb -query | grep background | head -n1 | awk '{print $2}')" -nf "$(xrdb -query | grep foreground | awk '{print $2}')" -sb "$(xrdb -query | grep color7: | awk '{print $2}')" -sf "$(xrdb -query | grep background | head -n1 | awk '{print $2}')" -fn "monospace:size=10" -l 10 -f -i -b
+dmenu_run -nb "$(xrdb -query | grep background |  awk '{print $2}')" -nf "$(xrdb -query | grep foreground | awk '{print $2}')" -sb "$(xrdb -query | grep color7: | awk '{print $2}')" -sf "$(xrdb -query | grep background  | awk '{print $2}')" -l 10 -i -b -fn "fixed:size=9"

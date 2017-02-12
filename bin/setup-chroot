@@ -1,0 +1,39 @@
+#!/bin/bash
+
+start() {
+    sudo -s -- <<EOF
+mount --rbind /sys /mnt/arch/sys
+mount --rbind /dev /mnt/arch/dev
+mount --rbind /proc /mnt/arch/proc
+mount --rbind /run /mnt/arch/run
+mount --bind /mnt/data /mnt/arch/mnt/data
+EOF
+}
+
+stop() {
+    sudo -s -- <<EOF
+umount /mnt/arch/* -R -l
+umount /mnt/arch/mnt/data -R -l
+EOF
+}
+
+test() {
+    VAR=`cat <<EOF
+echo test
+EOF`
+echo $VAR
+}
+
+$@
+# case "$1" in
+#     start)
+#             start
+#         ;;
+#     stop)
+#             stop
+#         ;;
+#     *)
+#         echo $"Usage: $0 {start|stop}"
+#         exit 1
+# esac
+# exit $?

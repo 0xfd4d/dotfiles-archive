@@ -6,16 +6,18 @@ Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
-Xcursor.theme: Adwaita
+Xcursor.theme: default
 
 urxvt.title: terminal
 
-urxvt.font: xft:monospace:size=10
+urxvt.font: xft:fixed:size=9
+urxvt.boldFont:
+urxvt.boldItalicFont:
 
 urxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 
 urxvt.keysym.M-u: perl:url-select:select_next
-urxvt.url-select.launcher: firefox-bin
+urxvt.url-select.launcher: xdg-open
 
 urxvt.keysym.M-d: perl:keyboard-select:activate
 
@@ -25,7 +27,7 @@ urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 urxvt.saveLines: 1024
 
-urxvt.internalBorder: 1
+urxvt.internalBorder: 0
 urxvt.externalBorder: 0
 
 urxvt.scrollBar: false
@@ -38,7 +40,11 @@ urxvt.scrollTtyKeypress: true
 urxvt.cursorBlink: false
 urxvt.cursorUnderline: false
 
-#include ".Xresources.d/dawn"
+#include ".Xresources.d/twilight"
 
-urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0000/e700
+! urxvt.transparent: true
+! urxvt.shading: 20
+
+! urxvt*depth: 32
+! urxvt*background: rgba:0000/0000/0000/7f00
+!

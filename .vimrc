@@ -2,6 +2,7 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-sensible'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
@@ -61,14 +62,6 @@ else
     return ''
 endfunction
 
-" set statusline=
-" set statusline+=\ %{toupper(mode())}\ 
-" set statusline+=\ %<%F\ %{ReadOnly()}\ %m\ 
-" set statusline+=\ %=
-" set statusline+=\ %y
-" set statusline+=\ %{(&fenc!=''?&fenc:&enc)}\ %{&ff}\ 
-
-
 if exists("+undofile")
     if isdirectory($HOME . '/.vim/undodir') == 0
         :silent !mkdir -p ~/.vim/undodir > /dev/null 2>&1
@@ -116,6 +109,9 @@ nnoremap <CR> o<Esc>k
 
 " sort words in line
 vnoremap <F3> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
+
+set pastetoggle=<F4>
+map <F5> :r! cat
 
 set guioptions-=m
 set guioptions-=T
