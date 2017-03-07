@@ -29,14 +29,14 @@ vman() {
     MANPAGER="col -b" man $1 2>&1 | vim -R -c 'set ft=man nomod nolist' -
 }
 
-export EDITOR="vim"
+export EDITOR="vi"
 export GREP_COLORS="mt=33"
 
-export PS1="\[\033[1m\]\\$ \[\033[0m\]\W "
+export PS1="\W \[\033[1m\]\\$\[\033[0m\] "
 export PS2="\[\033[1m\]> \[\033[0m\]"
 
 export GOPATH="$HOME/go"
 
-export PATH="$PATH:$HOME/dotfiles/bin:$GOPATH/bin"
+export PATH="$PATH:$HOME/dotfiles/bin:$GOPATH/bin:$HOME/.config/composer/vendor/bin"
 
 export MPD_HOST=/var/lib/mpd/socket

@@ -11,7 +11,7 @@ xset r rate 300 30
 # wall
 ./.fehbg
 
-redshift -l 59.9343:30.3351 &
+redshift -l 59.9343:30.3351 -b 1:0.75 &
 # xcompmgr &
 dunst &
 pidgin &

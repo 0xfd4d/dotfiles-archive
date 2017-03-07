@@ -4,4 +4,4 @@
 [color]
     ui = auto
 [diff]
-    tool = vimdiff
+    tool = vi

@@ -1,6 +1,6 @@
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintlight
+Xft.hintstyle: hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.dpi: 96
@@ -10,9 +10,10 @@ Xcursor.theme: default
 
 urxvt.title: terminal
 
-urxvt.font: xft:fixed:size=9
-urxvt.boldFont:
-urxvt.boldItalicFont:
+! urxvt.font: -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
+urxvt.font: -*-fixed-medium-r-*-*-13-*-*-*-*-*-iso10646-*
+! urxvt.boldFont:
+! urxvt.boldItalicFont:
 
 urxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 
@@ -21,9 +22,9 @@ urxvt.url-select.launcher: xdg-open
 
 urxvt.keysym.M-d: perl:keyboard-select:activate
 
-urxvt.keysym.M-c: perl:clipboard:copy
-urxvt.keysym.M-v: perl:clipboard:paste
-urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+! urxvt.keysym.M-c: perl:clipboard:copy
+! urxvt.keysym.M-v: perl:clipboard:paste
+! urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 urxvt.saveLines: 1024
 
@@ -40,7 +41,7 @@ urxvt.scrollTtyKeypress: true
 urxvt.cursorBlink: false
 urxvt.cursorUnderline: false
 
-#include ".Xresources.d/twilight"
+#include ".Xresources.d/hybrid"
 
 ! urxvt.transparent: true
 ! urxvt.shading: 20
