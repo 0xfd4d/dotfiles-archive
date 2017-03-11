@@ -121,7 +121,7 @@ compose() {
                 clock="${line#?}"
                 ;;
         esac
-        echo "${desktop}${title}${clock}${wifi}${music} %{r}${CU}TODO: галерея$R"
+        echo "%{B#000000}%{O+2}$R${desktop}${title}%{r}   ${CU} TODO: галерея $R${wifi}${music}${clock}%{B#000000}%{O+2}$R"
     done
 }
 
@@ -131,4 +131,4 @@ music       > "$LEMONBAR_FIFO" &
 wifi        > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1365x13+0+0" -o 1 -B "$C1" -F "$C2" -f "-*-fixed-medium-r-*-*-13-*-*-*-*-*-iso10646-*" LVDS-0
+cat "$LEMONBAR_FIFO" | compose | lemonbar -b -g "1366x18+0+0" -B "$C1" -F "$C2" -f "-*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*" LVDS-0

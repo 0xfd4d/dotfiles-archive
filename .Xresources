@@ -6,14 +6,13 @@ Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
-Xcursor.theme: default
-
 urxvt.title: terminal
 
-! urxvt.font: -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
-urxvt.font: -*-fixed-medium-r-*-*-13-*-*-*-*-*-iso10646-*
-! urxvt.boldFont:
-! urxvt.boldItalicFont:
+urxvt.font: -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
+urxvt.boldFont:
+urxvt.boldItalicFont:
+
+urxvt.letterSpace: 0
 
 urxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 
@@ -28,7 +27,7 @@ urxvt.keysym.M-d: perl:keyboard-select:activate
 
 urxvt.saveLines: 1024
 
-urxvt.internalBorder: 0
+urxvt.internalBorder: 2
 urxvt.externalBorder: 0
 
 urxvt.scrollBar: false
@@ -40,8 +39,6 @@ urxvt.scrollTtyKeypress: true
 
 urxvt.cursorBlink: false
 urxvt.cursorUnderline: false
-
-#include ".Xresources.d/hybrid"
 
 ! urxvt.transparent: true
 ! urxvt.shading: 20

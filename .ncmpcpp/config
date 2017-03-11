@@ -1,6 +1,6 @@
 progressbar_look = "━━"
 autocenter_mode = "yes"
-external_editor = "nvim"
+external_editor = "vi"
 mpd_music_dir = "/mnt/data/music"
 playlist_disable_highlight_delay = 0
 

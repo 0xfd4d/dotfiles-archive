@@ -159,5 +159,5 @@ ctrl + Print
     FILE_NAME="s$(date +%s%N).png" ; import /tmp/$FILE_NAME && cp /tmp/$FILE_NAME ~/s.png
 
 # shortcuts
-super + {F1,F5}
-    {exec palemoon &> /dev/null 2>&1,googleimg}
+super + {F1,F2,,F5}
+    {exec palemoon &> /dev/null 2>&1,nautilus,googleimg}

@@ -39,4 +39,4 @@ export GOPATH="$HOME/go"
 
 export PATH="$PATH:$HOME/dotfiles/bin:$GOPATH/bin:$HOME/.config/composer/vendor/bin"
 
-export MPD_HOST=/var/lib/mpd/socket
+export MPD_HOST=/var/run/mpd/socket

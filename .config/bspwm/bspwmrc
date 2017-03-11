@@ -33,6 +33,7 @@ bspc rule -a Subl3 desktop=^3 follow=on
 bspc rule -a Sublime_text desktop=^3 follow=on
 bspc rule -a Filezilla desktop=^3 follow=on
 bspc rule -a Pcmanfm desktop=^3 follow=on
+bspc rule -a Nautilus desktop=^3 follow=on
 bspc rule -a Zathura desktop=^3 state=tiled follow=on
 
 bspc rule -a Sxiv desktop=^4 follow=on
