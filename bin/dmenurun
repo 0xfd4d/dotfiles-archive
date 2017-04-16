@@ -1,4 +1,4 @@
 #!/bin/sh
 
-dmenu_run -nb "$(xrdb -query | grep color0: |  awk '{print $2}')" -nf "$(xrdb -query | grep color7: | awk '{print $2}')" -sb "$(xrdb -query | grep color7: | awk '{print $2}')" -sf "$(xrdb -query | grep color0:  | awk '{print $2}')" -i -fn "-*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*"
+dmenu_run -nb "$(xrdb -query | grep color0: |  awk '{print $2}')" -nf "$(xrdb -query | grep color7: | awk '{print $2}')" -sb "$(xrdb -query | grep color7: | awk '{print $2}')" -sf "$(xrdb -query | grep color0:  | awk '{print $2}')" -i -fn "Fixed:pixelsize=12"
 

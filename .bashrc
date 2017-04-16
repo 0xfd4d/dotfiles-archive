@@ -4,7 +4,7 @@ export HISTSIZE=-1
 export HISTFILESIZE=-1
 
 alias cal='cal -y'
-alias vol='alsamixer'
+alias vol='alsamixer -g'
 alias tmux='tmux a'
 alias ls='ls --group-directories-first --color=auto -b'
 alias l='ls --group-directories-first -1 --color=auto -b'
@@ -25,10 +25,6 @@ h() {
     fi
 }
 
-vman() {
-    MANPAGER="col -b" man $1 2>&1 | vim -R -c 'set ft=man nomod nolist' -
-}
-
 export EDITOR="vi"
 export GREP_COLORS="mt=33"
 
@@ -39,4 +35,4 @@ export GOPATH="$HOME/go"
 
 export PATH="$PATH:$HOME/dotfiles/bin:$GOPATH/bin:$HOME/.config/composer/vendor/bin"
 
-export MPD_HOST=/var/run/mpd/socket
+export XDG_CACHE_HOME="/tmp/${USER}/.cache"

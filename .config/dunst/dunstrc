@@ -12,7 +12,7 @@
     geometry = "300x0-12+12"
     shrink = no
     transparency = 0
-    idle_threshold = 120
+    idle_threshold = 60
     monitor = 0
     follow = mouse
     sticky_history = no
@@ -26,13 +26,13 @@
     startup_notification = true
     dmenu = /usr/bin/dmenu -p dunst
     browser = /usr/local/bin/firefox
-    icon_position = left
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_position = right
+    icon_folders = /usr/share/icons/Arc/status/16:/usr/share/icons/Arc/actions/16:/usr/share/icons/Arc/apps/16:
     stack_duplicates = false
 
 [frame]
     width = 2
-    color = "#0D0E0F"
+    color = "#0F0F0F"
 
 [shortcuts]
     close = ctrl+space
@@ -41,17 +41,17 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#000000"
-    foreground = "#A8B4C0"
+    background = "#070707"
+    foreground = "#AAAAAA"
     timeout = 10
 
 [urgency_normal]
-    background = "#000000"
-    foreground = "#A8B4C0"
+    background = "#070707"
+    foreground = "#AAAAAA"
     timeout = 10
 
 [urgency_critical]
-    background = "#000000"
-    foreground = "#A8B4C0"
+    background = "#070707"
+    foreground = "#AAAAAA"
     timeout = 0
 

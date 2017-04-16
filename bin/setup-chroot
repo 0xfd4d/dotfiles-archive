@@ -2,18 +2,21 @@
 
 start() {
     sudo -s -- <<EOF
-mount --rbind /sys /mnt/arch/sys
-mount --rbind /dev /mnt/arch/dev
-mount --rbind /proc /mnt/arch/proc
-mount --rbind /run /mnt/arch/run
-mount --bind /mnt/data /mnt/arch/mnt/data
+mount --bind /sys /storage/arch/sys
+mount --bind /dev /storage/arch/dev
+mount --bind /dev/shm /storage/arch/dev/shm
+mount --bind /proc /storage/arch/proc
+mount --bind /run /storage/arch/run
 EOF
 }
 
 stop() {
     sudo -s -- <<EOF
-umount /mnt/arch/* -R -l
-umount /mnt/arch/mnt/data -R -l
+umount /storage/arch/sys -l
+umount /storage/arch/dev -l
+umount /storage/arch/dev/shm -l
+umount /storage/arch/proc -l
+umount /storage/arch/run -l
 EOF
 }
 

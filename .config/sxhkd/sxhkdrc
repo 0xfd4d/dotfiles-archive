@@ -9,7 +9,8 @@ super + {Return,KP_Enter}
 
 # program launcher
 super + space
-    dmenurun
+    rofi -combi-modi run\,drun -show combi -modi combi
+#    dmenurun
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
@@ -136,7 +137,7 @@ super + shift + button1
 
 # mpd cotrol
 super + {F9,F10,F11,F12}
-    mpc {toggle,stop,prev,next} &> /dev/null
+    cmus-remote {-u,-s,-r,-n}
 
 # volume
 super + {F6,F7,F8}
@@ -147,10 +148,6 @@ super + {F6,F7,F8}
 super + F4
     notify-send "$(date '+%a %d %b %H:%M')"
 
-# something
-super + KP_Insert
-    wall
-
 # screen
 Print
     FILE_NAME="s$(date +%s%N).png" ; ffmpeg -f x11grab -video_size 1366x768 -i $DISPLAY -vframes 1 /tmp/$FILE_NAME -y && cp /tmp/$FILE_NAME ~/s.png
@@ -160,4 +157,4 @@ ctrl + Print
 
 # shortcuts
 super + {F1,F2,,F5}
-    {exec palemoon &> /dev/null 2>&1,nautilus,googleimg}
+    {exec palemoon-bin &> /dev/null 2>&1,nautilus,googleimg}

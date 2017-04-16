@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 LEMONBAR_FIFO="/tmp/lemonbar_fifo"
 
@@ -7,38 +7,41 @@ mkfifo "$LEMONBAR_FIFO"
 
 C1="$(xrdb -query | grep color0: | awk '{print $2}')"
 C2="$(xrdb -query | grep color7: | awk '{print $2}')"
-C3="$(xrdb -query | grep color4: | awk '{print $2}')"
+C3="$(xrdb -query | grep color5: | awk '{print $2}')"
 
-C="%{B$C2}%{F$C1}"
-CU="%{B$C3}%{F$C2}"
+# C="%{B$C2}%{F$C1}"
+# CU="%{B$C3}%{F$C1}"
 
+CU="%{B$C3}%{F$C1}"
 
 R="%{B-}%{F-}"
 
-desktops() {
-    while true; do
-        bspc subscribe | \
-        while read -r line; do
-            [ $( echo $line | grep "^WM$MONITOR" ) ] || continue
-            desktops=""
-            for e in $(echo $line | cut -d':' -f2-10 | tr ':' '\n'); do
-                desktop=""
-                if [ "${e:0:1}" = "O" ]; then
-                    desktop="$C ${e:1} $R "
-                elif [ "${e:0:1}" = "o" ]; then
-                    desktop="${e:1} "
-                elif [ "${e:0:1}" == "F" ]; then
-                    desktop="$C ${e:1} $R "
-                elif [ "${e:0:1}" == "u" ]; then
-                    desktop="$CU${e:1}$R "
-                fi
-                desktops="$desktops$desktop"
-            done
-            sleep 0.025
-            echo "D$desktops"
-        done
-    done
-}
+# desktops() {
+#     while true; do
+#         bspc subscribe | \
+#         while read -r line; do
+#             [ $( echo $line | grep "^WM$MONITOR" ) ] || continue
+#             desktops=""
+#             for e in $(echo $line | cut -d':' -f2-10 | tr ':' '\n'); do
+#                 desktop=""
+#                 if [ "${e:0:1}" = "O" ]; then
+#                     desktop="%{R} ${e:1} %{R} "
+#                 elif [ "${e:0:1}" = "o" ]; then
+#                     desktop="${e:1} "
+#                 elif [ "${e:0:1}" == "F" ]; then
+#                     desktop="%{R} ${e:1} %{R} "
+#                 elif [ "${e:0:1}" == "U" ]; then
+#                     desktop="$CU ${e:1} $R "
+#                 elif [ "${e:0:1}" == "u" ]; then
+#                     desktop="$CU ${e:1} $R "
+#                 fi
+#                 desktops="$desktops$desktop"
+#             done
+#             sleep 0.025
+#             echo "D$desktops"
+#         done
+#     done
+# }
 
 title() {
     sleep 1
@@ -46,7 +49,7 @@ title() {
     while read -r title; do
         sleep 0.025
         if [ "$title" != "" ]; then
-            echo "T $C ${title:0:80} $R"
+            echo "T%{+u}$(echo $title | cut -c1-100)%{-u} "
         else
             echo "T"
         fi
@@ -56,79 +59,80 @@ title() {
 dateTime() {
     while true; do
         DATE=$(date '+%H:%M %a %d %b')
-        echo "C $C $DATE $R"
+        echo "C$DATE"
         sleep 15
     done
 }
 
-printSong() {
-    STATUS_1=$(mpc current 2> /dev/null)
-    if [ "$STATUS_1" != "" ]; then
-        STATUS_2=$(mpc | sed -n '2p')
-        if [[ $STATUS_2 == *"paused"* ]]
-        then
-            echo "M"
-        else
-            echo "M $C $STATUS_1 $R"
-        fi
-    else
-        echo "M"
-    fi
-}
+# printSong() {
+#     STATUS_1=$(mpc current 2> /dev/null)
+#     if [ "$STATUS_1" != "" ]; then
+#         STATUS_2=$(mpc | sed -n '2p')
+#         if [[ $STATUS_2 == *"paused"* ]]
+#         then
+#             echo "M"
+#         else
+#             echo "M $STATUS_1"
+#         fi
+#     else
+#         echo "M"
+#     fi
+# }
 
-music() {
-  while true; do
-      sleep 1
-      echo $(printSong)
-      mpc idleloop 2> /dev/null | \
-          while read -r line; do
-              echo $(printSong)
-          done
-      sleep 5
-  done
-}
+# music() {
+#   while true; do
+#       sleep 1
+#       echo "$(printSong)"
+#       mpc idleloop 2> /dev/null | \
+#           while read -r line; do
+#               echo "$(printSong)"
+#           done
+#       sleep 5
+#   done
+# }
 
-wifi() {
-    while true; do
-        IW=$(/usr/sbin/iw wlp6s0 link)
-        WIFI_SSID=$(echo "$IW" | grep 'SSID' | sed 's/SSID: //' | sed 's/\t//')
-        if [ "$WIFI_SSID" != "" ]; then
-            WIFI_SIGNAL=$(echo "$IW" | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
-            echo "W ${C} wifi: $WIFI_SSID $WIFI_SIGNAL $R"
-        else
-            echo "W"
-        fi
-        sleep 10
-    done
-}
+# wifi() {
+#     while true; do
+#         IW=$(/usr/sbin/iw wlp6s0 link)
+#         WIFI_SSID=$(echo "$IW" | grep 'SSID' | sed 's/SSID: //' | sed 's/\t//')
+#         if [ "$WIFI_SSID" != "" ]; then
+#             WIFI_SIGNAL=$(echo "$IW" | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
+#             echo "W %{R} wifi: $WIFI_SSID $WIFI_SIGNAL %{R}"
+#         else
+#             echo "W"
+#         fi
+#         sleep 10
+#     done
+# }
 
 compose() {
     while read -r line; do
         case $line in
-            D*)
-                desktop="${line#?}"
-                ;;
+            # D*)
+            #     desktop="${line#?}"
+            #     ;;
             T*)
                 title="${line#?}"
                 ;;
-            M*)
-                music="${line#?}"
-                ;;
-            W*)
-                wifi="${line#?}"
-                ;;
+            # M*)
+            #     music="${line#?}"
+            #     ;;
+            # W*)
+            #     wifi="${line#?}"
+            #     ;;
             C*)
                 clock="${line#?}"
                 ;;
         esac
-        echo "%{B#000000}%{O+2}$R${desktop}${title}%{r}   ${CU} TODO: галерея $R${wifi}${music}${clock}%{B#000000}%{O+2}$R"
+        # echo "%{+o}%{+u}%{O+2}${desktop}%{r}${clock}%{O+2}%{c}${title}%{-u}%{-o}"
+        echo "%{O+2}${title}%{r}${clock}%{O+2}"
     done
 }
 
-desktops    > "$LEMONBAR_FIFO" &
+# desktops    > "$LEMONBAR_FIFO" &
 title       > "$LEMONBAR_FIFO" &
-music       > "$LEMONBAR_FIFO" &
-wifi        > "$LEMONBAR_FIFO" &
+# music       > "$LEMONBAR_FIFO" &
+# wifi        > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -b -g "1366x18+0+0" -B "$C1" -F "$C2" -f "-*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*" LVDS-0
+cat "$LEMONBAR_FIFO" | compose | lemonbar -b -g "1366x18+0+0" -B "$C1" -F "$C2" -U "$C2" -u 2 -f "-*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*" LVDS-0

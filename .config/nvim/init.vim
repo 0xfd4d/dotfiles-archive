@@ -1,19 +1,17 @@
 filetype off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
-Plug 'tpope/vim-sensible'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tomtom/tcomment_vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
-Plug 'mattn/emmet-vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'sheerun/vim-polyglot'
-Plug 'lumiliet/vim-twig'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
-Plug 'Shougo/deoplete.nvim'
-Plug 'padawan-php/deoplete-padawan'
+Plug 'lumiliet/vim-twig'
+Plug 'mattn/emmet-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'tomtom/tcomment_vim'
 Plug 'vim-syntastic/syntastic'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -23,12 +21,9 @@ filetype indent on
 
 set autoindent
 set backspace=indent,eol,start
-set clipboard+=unnamed
-set clipboard+=unnamedplus
-set copyindent
+set clipboard=unnamed,unnamedplus
 set expandtab
 set hlsearch
-set ignorecase
 set ignorecase
 set incsearch
 set laststatus=2
@@ -43,7 +38,6 @@ set shiftwidth=4
 set showcmd
 set showmode
 set smartcase
-set smartcase
 set softtabstop=4
 set tabstop=4
 set undofile
@@ -51,22 +45,22 @@ set wildmenu
 set wildmode=longest,list
 
 if exists("+undofile")
-    if isdirectory($HOME . '/.vim/undodir') == 0
-        :silent !mkdir -p ~/.vim/undodir > /dev/null 2>&1
+    if isdirectory($HOME . '/.config/nvim/undodir') == 0
+        :silent !mkdir -p ~/.config/nvim/undodir > /dev/null 2>&1
     endif
 endif
 
-set undodir=~/.vim/undodir
+set undodir=~/.config/nvim/undodir
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_comletion_start_length = 1
+let g:deoplete#omni_patterns = {}
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_user_command = 'find %s -type f'
 
-
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%=\ %{SyntasticStatuslineFlag()}\ %P
+" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%=\ %{SyntasticStatuslineFlag()}\ %P
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1

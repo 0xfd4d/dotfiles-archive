@@ -1,4 +1,5 @@
-.window-frame {
+.window-frame,
+.window-frame:backdrop  {
   box-shadow: none;
   margin: 0;
 }
