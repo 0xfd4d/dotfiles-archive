@@ -1,7 +1,0 @@
-rofi.font: fixed 9
-
-rofi.color-enabled: true
-rofi.color-window: #070707, argb:800f0f0f, #0f0f0f
-rofi.color-normal: #070707, #aaaaaa, #070707, #aaaaaa, #070707
-rofi.color-active: #0f0f0f, #aaaaaa, #0f0f0f, #aaaaaa, #0f0f0f
-rofi.color-urgent: #070707, #aa00aa, #070707, #aaaaaa, #aa00aa

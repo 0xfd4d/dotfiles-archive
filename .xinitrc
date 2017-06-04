@@ -6,18 +6,17 @@
 
 xrdb -merge ~/dotfiles/.Xresources
 xsetroot -cursor_name left_ptr
-# hsetroot
-xset r rate 300 30
+xset r off
 
-# wall
-# ./.fehbg
+./.fehbg
+
+2bwm &
 
 redshift -l 59.9343:30.3351 -b 1:0.95 &
-# xcompmgr &
+xbanish &
 dunst &
-pidgin &
+xdotool set_desktop 4 exec pidgin &
 
 statusbar &
 
-sxhkd &
-exec bspwm
+exec wm

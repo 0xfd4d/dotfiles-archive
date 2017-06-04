@@ -1,1 +1,3 @@
-set font "sans-serif 9"
+set font "Noto Sans 11px"
+set statusbar-bg "#090A0D"
+set statusbar-fg "#AAAAAA"

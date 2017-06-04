@@ -5,30 +5,21 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
+Xcursor.theme: Adwaita
+
 urxvt.title: terminal
 
-urxvt.font: -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
+urxvt.font: -*-fixed-bold-r-*-*-12-*-*-*-*-*-iso10646-*
 urxvt.boldFont:
 urxvt.boldItalicFont:
 
-Xcursor.theme: Adwaita
+! urxvt.font: xft:Source Code Pro:pixelsize=11
 
-! urxvt.letterSpace: 0
-
-! urxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
-
-! urxvt.keysym.M-u: perl:url-select:select_next
-! urxvt.url-select.launcher: xdg-open
-
-! urxvt.keysym.M-d: perl:keyboard-select:activate
-
-! urxvt.keysym.M-c: perl:clipboard:copy
-! urxvt.keysym.M-v: perl:clipboard:paste
-! urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+urxvt.letterSpace: 0
 
 urxvt.saveLines: 1024
 
-urxvt.internalBorder: 2
+urxvt.internalBorder: 0
 urxvt.externalBorder: 0
 
 urxvt.scrollBar: false
@@ -38,14 +29,7 @@ urxvt.scrollTtyOutput: false
 urxvt.scrollWithBuffer: true
 urxvt.scrollTtyKeypress: true
 
-urxvt.cursorBlink: true
-urxvt.cursorUnderline: true
+urxvt.cursorBlink: false
+urxvt.cursorUnderline: false
 
-#include ".Xresources.d/hybrid"
-
-! urxvt.transparent: true
-! urxvt.shading: 20
-
-! urxvt*depth: 32
-! urxvt*background: rgba:0000/0000/0000/7f00
-!
+#include ".Xresources.d/default"
