@@ -1,44 +1,202 @@
 #!/bin/sh
 #
+# wmutils keys
+#
+
+# # focus
+# alt + {h,j,k,l}
+#     closest {left,down,up,right}
+# 
+# alt + {_,shift +} Tab
+#     focus {next,prev}
+# 
+# super + {h,j,k,l}
+#     wmv {-12 0, 0 12, 0 -12, 12 0} `pfw`
+# 
+# super + shift + {h,j,k,l}
+#     wmv {-48 0, 0 48, 0 -48, 48 0} `pfw`
+# 
+# # resize windows
+# super + alt + {h,j,k,l}
+#     wrs {-12 0, 0 12, 0 -12, 12 0} `pfw` && wshuf
+# 
+# super + shift + alt + {h,j,k,l}
+#     wrs {-48 0, 0 48, 0 -48, 48 0} `pfw` && wshuf
+# 
+# # # set default size of terminal to focused window
+# super + Home
+#     wid=`pfw`; wtp `wattr xy $wid` 436 244 $wid
+# 
+# # move windows with the mouse:
+# super + @button{1,3}
+#     {xmmv, xmrs} `underneath`
+# 
+# # kill window
+# super + {q,shift + q}
+#     killw {_,-p} `pfw`
+# 
+# # groups
+# super + shift + {0-9}
+#     export num={0-9}; grp $num `pfw` && lsgrp $num | xargs mapw -m
+# 
+# # toggle groups' visibility
+# super + {0-9}
+#     lsgrp {0-9} | xargs mapw -t
+# 
+# # move window to selected corner
+# super + {y,u,b,n,g}
+#     corner {_,tr,bl,br,md}
+# 
+# super + shift + {y,u,b,n}
+#     snap {left,right,down,up}
+# 
+# # fullscreen
+# super + x
+#     fullscreen `pfw` && wshuf
+# 
+# # raise/lower window
+# super + r
+#     chwso -i `pfw`
+
+#
+# bspwm hotkeys
+#
+
+# quit bspwm normally
+super + alt + Escape
+    bspc quit
+
+# close and kill
+super + {_,shift + }q
+    bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+    bspc desktop -l next
+
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+super + y
+    bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+# swap the current node and the biggest node
+super + g
+    bspc node -s biggest
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,s,f}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+super + ctrl + {x,y,z}
+    bspc node -g {locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+    bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous node in the current desktop
+alt + {_,shift + }Tab
+    bspc node -f {next,prev}.local
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+    bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+    bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+    bspc wm -h off; \
+    bspc node {older,newer} -f; \
+    bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+    bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+    bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
 # wm independent hotkeys
 #
 
 # terminal emulator
 super + {Return,KP_Enter}
-    urxvt
+    xterm
+    # st -g 72x20
 
 # program launcher
-super + space
-    rofirun
-#    dmenurun
+super + w
+    slaunch
+
 # make sxhkd reload its configuration files:
-super + Escape
-    pkill -USR1 -x sxhkd
+# super + Escape
+#     pkill -USR1 -x sxhkd
 
 # colorpick
 super + shift + button1
     getcolor
 
-# mpd cotrol
+# music cotrol
 super + {F9,F10,F11,F12}
-    cmus-remote {-u,-s,-r,-n}
+    cmus-remote -{u,s,r,n}
 
 # volume
 super + {F6,F7,F8}
-    volume {toggle,1-,1+}
-{XF86AudioLowerVolume,XF86AudioRaiseVolume}
-    volume {1-,1+}
-
-super + F4
-    notify-send "$(date '+%a %d %b %H:%M')"
+    volume {!,-,+}
 
 # screen
-Print
-    FILE_NAME="s$(date +%s%N).png" ; ffmpeg -f x11grab -video_size 1366x768 -i $DISPLAY -vframes 1 /tmp/$FILE_NAME -y && cp /tmp/$FILE_NAME ~/s.png
-
-ctrl + Print
-    FILE_NAME="s$(date +%s%N).png" ; import /tmp/$FILE_NAME && cp /tmp/$FILE_NAME ~/s.png
+@{_,super + ,super + shift + }Print
+    export name="s`date +%s%N`.png" && scrot {_,-s,-u} /tmp/$name && ln -fs /tmp/$name ~/s.png
 
 # shortcuts
-super + {F1,F5}
-    {exec firefox&> /dev/null 2>&1,googleimg}
+super + {F1,F2,F3}
+    {vimb &> /dev/null 2>&1,link-open,googleimg}

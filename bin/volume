@@ -1,3 +1,20 @@
 #!/bin/sh
-amixer set Master "$1" -c MID > /dev/null 2>&1
-amixer set Speaker Front "$1" -c U5 > /dev/null 2>&1
+
+CHANNEL="Master Softvol"
+
+get_level() {
+    amixer get "$CHANNEL" | grep 'Front Left:' | cut -f6 -d' ' | tr -d '[]%'
+}
+
+set_amixer() {
+    amixer set "$CHANNEL" "$1" > /dev/null 2>&1
+    popup `volume | SEP=╋ START= END= SIZE=38 mkb`
+}
+
+case $1 in
+    "")     get_level ;;
+    +)      set_amixer 2%+ ;;
+    -)      set_amixer 2%- ;;
+    !)      set_amixer toggle ;;
+    *)      set_amixer $1 ;;
+esac

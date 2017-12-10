@@ -1,8 +1,0 @@
-#!/usr/bin/python2.7
-from Xlib import display
-
-c = display.Display().screen().root.query_pointer()._data
-x = c["root_x"]
-y = c["root_y"]
-
-print "X=%i Y=%i" % (x, y)

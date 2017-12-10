@@ -1,0 +1,37 @@
+#!/bin/sh
+set -x
+dest="/data/music/albms"
+cue_file="`realpath "$1"`"
+flac_file="`realpath "$2"`"
+performer="`cueprint -d "%P" "$cue_file"`"
+title="`cueprint -d "%T" "$cue_file"`"
+date="`sed -n 's!^REM DATE "\?\([^"]*\)"\?!\1!p' "$cue_file" | tr -d '[:space:]'`"
+dir_album="$dest/$performer/$date — $title"
+
+mkdir -p "$dir_album"
+
+shnsplit -f "$cue_file" -d "$dir_album" -o flac -t "%n:%t" "$flac_file"
+
+(
+    cd "$dir_album"
+    for i in *:*.flac; do
+        num="`echo "$i" | cut -f1 -d\:`"
+        file="`echo "$i" | cut -f2 -d\:`"
+        cueprint -n "$num" -t "\
+ALBUM=%T
+ARTIST=%p
+COMPOSER=%c
+DATE=$date
+DESCRIPTION=%m
+GENGE=%g
+ISRC=%i %U
+PERFORMER=%p
+TITLE=%t
+TRACKNUMBER=%02n
+TRACKTOTAL=%02N
+" "$cue_file" | metaflac --remove-all-tags --import-tags-from=- "$i"
+    mv "$i" "$file"
+    done
+)
+
+ls -lh "$dir_album"

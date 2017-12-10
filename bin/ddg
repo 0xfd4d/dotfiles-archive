@@ -1,0 +1,11 @@
+#!/bin/sh
+
+color0="$(xrdb -query | grep color0: | awk '{print $2}')"
+colorbg="$(xrdb -query | grep background: | awk '{print $2}')"
+colorfg="$(xrdb -query | grep foreground: | awk '{print $2}')"
+
+dmenu_args="-fn fixed:pixelsize=12:lang=ru -nb $colorbg -nf $colorfg -sb $colorfg -sf $colorbg"
+
+QUERY=$(dmenu $dmenu_args -p ddg | tr " " "+")
+
+chromium "https://duckduckgo.com/lite?q=$QUERY"

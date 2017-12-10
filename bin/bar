@@ -1,0 +1,39 @@
+#!/bin/sh
+
+LEMONBAR_FIFO="/tmp/lemonbar_fifo"
+
+test -e "$LEMONBAR_FIFO" && rm "$LEMONBAR_FIFO"
+mkfifo "$LEMONBAR_FIFO"
+
+colorbg=`xrdb -query | grep background: | awk '{print $2}'`
+colorfg=`xrdb -query | grep foreground: | awk '{print $2}'`
+
+indent="   "
+
+font="-*-fixed-medium-*-*-*-12-*-*-*-*-*-iso10646-*"
+symbols="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+
+other() {
+    while :; do
+        todo=" `todo -c` todo"
+        date=" `date '+%H:%M %a %d %b'`"
+        echo "O:${todo}${indent}${date}"
+        sleep 15
+    done
+}
+
+compose() {
+    while IFS=: read ev line; do
+        case $ev in
+            # T) title="$line" ;;
+            O) other="$line" ;;
+            T) title="$line" ;;
+        esac
+        echo "${title}%{r} ${other} "
+    done
+}
+
+# title > "$LEMONBAR_FIFO" &
+other > "$LEMONBAR_FIFO" &
+
+cat "$LEMONBAR_FIFO" | compose | lemonbar -d -b -g "1366x24+0+0" -f "$font" -f "$symbols" -B "$colorbg" -F "$colorfg"

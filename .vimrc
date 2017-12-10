@@ -1,31 +1,28 @@
-filetype off
+set nocompatible
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'lumiliet/vim-twig'
-Plug 'sheerun/vim-polyglot'
-Plug 'tomtom/tcomment_vim'
-Plug 'vim-syntastic/syntastic'
-Plug 'arcticicestudio/nord-vim'
-Plug 'wellle/tmux-complete.vim'
+Plug 'fidian/hexmode'
+Plug 'tpope/vim-sleuth'
+Plug 'xero/blaquemagick.vim'
 
 call plug#end()
 
+filetype indent plugin on
 syntax on
-filetype plugin on
-filetype indent on
 
 set autoindent
 set backspace=indent,eol,start
-set belloff=all
 set clipboard=unnamed,unnamedplus
 set complete-=i
 set expandtab
 set hlsearch
 set ignorecase
 set incsearch
-set laststatus=2
+set laststatus=1
+set lazyredraw
+set lazyredraw
 set list
 set listchars=tab:\¦\ ,trail:·,nbsp:░
 set mouse=a
@@ -37,71 +34,53 @@ set relativenumber
 set shiftround
 set shiftwidth=4
 set showcmd
+set showmatch
 set showmode
 set smartcase
 set softtabstop=4
 set tabstop=4
+set ttyfast
 set undodir=~/.vim/undodir
 set undofile
+set wildignore=*/vendor/*,*/.git/*,*/cache/*
 set wildmenu
 
-if exists("+undofile")
-    if isdirectory($HOME . '/.vim/undodir') == 0
-        :silent !mkdir -p ~/.vim/undodir > /dev/null 2>&1
-    endif
-endif
+au BufNewFile,BufRead *Pkgfile set filetype=sh
 
-let g:netrw_banner=0
-let g:netrw_bufsettings='nobl noma nomod nowrap number relativenumber ro'
-let g:netrw_liststyle=1
-
-let g:syntastic_always_populate_loc_list=1
-
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-
-map <F2> :Explore<CR>
-
-inoremap jj <ESC>
+" Show highlighting groups for current word
+" nmap <C-S-P> :call <SID>SynStack()<CR>
+" function! <SID>SynStack()
+"	if !exists("*synstack")
+"	  return
+"	endif
+"	echo map(synstack(line('.'), col('.')), 
+"	\		'synIDattr(v:val, "name")')
+" endfunc
 
 " space bar un-highlights search
 noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
-" insert new line without entering insert mode
-inoremap <S-Enter> <C-o>O
-nnoremap <S-Enter> O<Esc>j
-nnoremap <CR> o<Esc>k
+noremap <silent> <F2> :Explore<CR>
 
 " sort words in line
 vnoremap <F3> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
-set pastetoggle=<F4>
-map <F5> :r! cat
+" 'fuzzy' find
+nmap <C-P> :find 
 
-imap jj <Esc>
+if exists("+undofile")
+	if isdirectory($HOME . '/.vim/undodir') == 0
+		:silent !mkdir -p ~/.vim/undodir > /dev/null 2>&1
+	endif
+endif
 
 for prefix in ['i', 'n', 'v']
-    for key in ['<Del>', '<Down>', '<End>', '<Home>', '<Left>', '<PageDown>', '<PageUp>', '<Right>', '<Up>']
-        exe prefix . "noremap " . key . " <Nop>"
-    endfor
+	for key in ['<Del>', '<Down>', '<End>', '<Home>', '<Left>', '<PageDown>', '<PageUp>', '<Right>', '<Up>']
+		exe prefix . "noremap " . key . " <Nop>"
+	endfor
 endfor
 
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-set guioptions-=L
+colorscheme blaquemagick
 
-set guifont=monospace\ 10
-
-colorscheme nord
-
-function! PhpSyntaxOverride()
-    hi! def link phpDocTags  phpDefine
-    hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-    autocmd!
-    autocmd FileType php call PhpSyntaxOverride()
-augroup END
+highlight OverLength   term=NONE cterm=NONE ctermfg=0	 ctermbg=1
+match OverLength /\%81v.*/

@@ -1,0 +1,2 @@
+#!/bin/sh
+curl -s "$1" > /tmp/img && sxiv -a /tmp/img; rm /tmp/img

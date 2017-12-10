@@ -1,0 +1,4 @@
+#!/bin/sh
+
+inotifywait -m -e close_write /var/mail/$USER 2>/dev/null | \
+while read line; do WAIT=1 notify new mail!; done

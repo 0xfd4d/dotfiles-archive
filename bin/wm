@@ -1,8 +1,2 @@
 #!/bin/sh
-
-while true
-do
-    # 2bwm
-    # bspwm
-    sxhkd
-done
+sxhkd

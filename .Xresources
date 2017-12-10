@@ -1,35 +1,8 @@
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
+XTerm.vt100.faceName: Fixed:pixelsize=12:lang=ru:antialias=false:autohint=false
+XTerm.vt100.locale: true
+XTerm.vt100.metaSendsEscape: true
+XTerm.termName: xterm-256color
+XTerm.loginShell: true
+XTerm.hold: false
 
-Xcursor.theme: Adwaita
-
-urxvt.title: terminal
-
-urxvt.font: -*-fixed-bold-r-*-*-12-*-*-*-*-*-iso10646-*
-urxvt.boldFont:
-urxvt.boldItalicFont:
-
-! urxvt.font: xft:Source Code Pro:pixelsize=11
-
-urxvt.letterSpace: 0
-
-urxvt.saveLines: 1024
-
-urxvt.internalBorder: 0
-urxvt.externalBorder: 0
-
-urxvt.scrollBar: false
-
-urxvt.scrollstyle: plain
-urxvt.scrollTtyOutput: false
-urxvt.scrollWithBuffer: true
-urxvt.scrollTtyKeypress: true
-
-urxvt.cursorBlink: false
-urxvt.cursorUnderline: false
-
-#include ".Xresources.d/default"
+#include ".Xresources.d/blaquemagic"

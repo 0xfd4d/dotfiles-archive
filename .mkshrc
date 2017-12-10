@@ -1,0 +1,17 @@
+PS1='[1;37m$[0m '
+PS2='> '
+HISTSIZE=10240
+HISTFILE=~/.history
+
+export PS1 PS2 HISTSIZE HISTFILE
+
+alias cal='cal -y'
+alias l='ls -1'
+alias ll='ls -l'
+alias ls='ls --color=auto'
+alias vol='alsamixer -g'
+
+alias xreload="xrdb -merge ~/dotfiles/.Xresources"
+alias rec='ffmpeg -f x11grab -s 1366x768 -an -r 25 -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y'
+
+bind ^L=clear-screen

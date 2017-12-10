@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for i in "$@"; do
+    curl -# -sF "file=@$i" 0x0.st
+done

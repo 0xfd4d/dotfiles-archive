@@ -1,22 +1,18 @@
 #!/bin/sh
 
-# eval $(dbus-launch)
-# export DBUS_SESSION_BUS_ADDRESS
-# export DBUS_SESSION_BUS_PID
-
 xrdb -merge ~/dotfiles/.Xresources
-xsetroot -cursor_name left_ptr
+xset +fp /usr/share/fonts/local
 xset r off
 
-./.fehbg
+redshift -l 60.84:31.56 -o &
+hsetroot -solid "#000000"
+bar &
+notify -d &
+mailwatch &
+bspwm &
+btpd &
 
-2bwm &
-
-redshift -l 59.9343:30.3351 -b 1:0.95 &
-xbanish &
-dunst &
-xdotool set_desktop 4 exec pidgin &
-
-statusbar &
-
-exec wm
+export WM=bspwm
+while :; do
+    wm
+done

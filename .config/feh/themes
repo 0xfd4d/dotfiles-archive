@@ -1,3 +1,0 @@
-feh -D -5 --scale-down --image-bg black --action1 "; readlink -n -f %F | xsel -b"
-
-fehr -D -5 --scale-down --image-bg black --action1 "; readlink -n -f %F | xsel -b" --sort mtime --recursive

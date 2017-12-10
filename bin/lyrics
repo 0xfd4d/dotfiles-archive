@@ -1,0 +1,34 @@
+#!/bin/sh
+
+test -f /tmp/cmus-status || touch /tmp/cmus-status
+
+case $1 in
+    "")
+        LPID=
+
+        tail -f -n1 /tmp/cmus-status | {
+            while read name
+            do
+                kill -9 $LPID
+                clear
+
+                file="/data/music/lyrics/$name.txt"
+
+                if test -f "$file"
+                then
+                    less "$file" 2>/dev/null &
+                    LPID=$!
+                else
+                    echo "No lyrics found for $name"
+                fi
+            done
+        }
+    ;;
+
+    e)
+        name="`tail -n1 /tmp/cmus-status`" # || echo No current track && exit 0
+
+        file="/data/music/lyrics/$name.txt"
+        vim "$file"
+    ;;
+esac

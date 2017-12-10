@@ -1,0 +1,30 @@
+#!/bin/sh
+
+test -z "$@" && exit 1
+
+WAIT=${WAIT:-0}
+
+rw=`lsw -r`
+sx=`wattr w $rw`
+sy=`wattr h $rw`
+
+w=244
+h=28
+x=24
+y=48
+
+bg=`xrdb -query | grep background: | awk '{print $2}'`
+fg=`xrdb -query | grep foreground: | awk '{print $2}'`
+
+font="-misc-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*"
+bin="%{B#b9b9b9}%{O2}%{B-}%{+o}%{+u}"
+bout="%{B#b9b9b9}%{O2}%{B-}"
+
+test $WAIT -eq 1 && sleep=infinity || sleep=5
+
+(
+    sleep $sleep &
+    pid=$!
+    echo "%{A:kill $pid:}%{O$w}%{A}%{l}$bin%{O6}$@%{O$w}%{r}%{O6}$bout"
+    wait
+) | lemonbar -b -d -g "${w}x${h}+${x}+${y}" -f "$font" -B "$bg" -F "$fg" -U "$fg" -u 2 | sh 2> /dev/null

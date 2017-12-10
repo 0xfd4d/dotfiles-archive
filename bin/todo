@@ -1,0 +1,28 @@
+#!/bin/sh
+
+TODO=${TODO:-/data/todo}
+
+list() {
+    test -f $TODO && nl $TODO
+}
+
+add() {
+    echo "$*" >> $TODO
+}
+
+count() {
+    test -f $TODO && wc -l $TODO | awk '{print $1}'
+}
+
+delete() {
+    test -n "$1" && sed -i "${1}d" $TODO
+}
+
+case $1 in
+    ""|-l) list ;;
+    -d) delete "$2" ;;
+    -c) count ;;
+    *) add "$*" ;;
+esac
+
+exit 0

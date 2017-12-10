@@ -1,0 +1,18 @@
+#!/bin/sh -l
+
+while test "$#" -ge 2; do
+        eval "_$1=\"$2\""
+        printf "_%s=\"%s\"\n" "$1" "$2"
+        shift
+        shift
+done
+
+if test "$_status" = "playing"; then
+    echo "$_artist - $_title" >> /tmp/cmus-status
+
+    popup "$_artist - $_title" &
+
+    path="/data/torrent/dl.overlay/thumbs"
+    thumb=`grep "$_artist	$_album" "$path" | cut -f3 | head -n1`
+    hsetroot -full "$thumb"
+fi

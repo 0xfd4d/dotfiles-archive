@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if pgrep mpv;then
+    popup $( echo ' { "command": ["loadfile", "'"$1"'", "append-play"] }' | socat - /tmp/mpvsocket )
+else
+    mpv "$@" &
+fi

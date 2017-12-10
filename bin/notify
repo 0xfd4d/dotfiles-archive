@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# depends: lemonbar, wattr, wew and common sense
+
+fifo=/tmp/notify.fifo
+
+case $1 in
+    -d)
+        test -f $fifo || mkfifo $fifo
+
+        tail -f $fifo | while read -r message; do
+            set -- $message
+            export WAIT=$1
+            shift
+            test $WAIT -eq 1 && popup "$@" || (setsid popup "$@" &)
+        done
+        ;;
+    *)
+        echo "${WAIT:-0} $*" > $fifo
+        ;;
+esac

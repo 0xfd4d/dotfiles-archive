@@ -1,0 +1,3 @@
+#!/bin/sh
+
+st -g 72x20 -e /bin/sh -c 'xsel -o | trans :ru -v'

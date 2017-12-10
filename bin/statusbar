@@ -2,36 +2,36 @@
 
 LEMONBAR_FIFO="/tmp/lemonbar_fifo"
 
-[ -e "$LEMONBAR_FIFO" ] && rm "$LEMONBAR_FIFO"
+test -e "$LEMONBAR_FIFO"  && rm "$LEMONBAR_FIFO"
 mkfifo "$LEMONBAR_FIFO"
 
-C1="$(xrdb -query | grep background: | awk '{print $2}')"
-C2="$(xrdb -query | grep color7: | awk '{print $2}')"
+C1="`xrdb -query | grep background: | awk '{print $2}'`"
+C2="`xrdb -query | grep color7: | awk '{print $2}'`"
 
 title() {
     sleep 1
     xtitle -s | \
-    while read -r title; do
-        echo "T$title "
+    while read title; do
+        echo "T:$title "
     done
 }
 
 dateTime() {
-    while true; do
-        DATE=$(date '+%H:%M %a %d %b')
-        echo "C$DATE"
+    while :; do
+        DATE=`date '+%H:%M %a %d %b'`
+        echo "C:$DATE"
         sleep 15
     done
 }
 
 compose() {
-    while read -r line; do
-        case $line in
-            T*)
-                title="${line#?}"
+    while IFS=: read ev line; do
+        case $ev in
+            T)
+                title="${line}"
                 ;;
-            C*)
-                clock="${line#?}"
+            C)
+                clock="${line}"
                 ;;
         esac
         echo "${title}%{r}${clock}"
@@ -41,4 +41,4 @@ compose() {
 title       > "$LEMONBAR_FIFO" &
 dateTime    > "$LEMONBAR_FIFO" &
 
-cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x13+0+0" -B "$C1" -F "$C2" -f "-*-fixed-bold-r-*-*-12-*-*-*-*-*-iso10646-*" LVDS-0
+cat "$LEMONBAR_FIFO" | compose | lemonbar -g "1366x11+0+0" -B "$C1" -F "$C2" -f "-*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*"
