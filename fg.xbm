@@ -1,4 +1,0 @@
-#define fg_width 4
-#define fg_height 4
-static unsigned char fg_bits[] = {
-   0x03, 0x03, 0x0c, 0x0c };

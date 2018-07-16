@@ -1,11 +1,15 @@
 EDITOR=vi
+ENV=$HOME/.kshrc
 LANG=en_US.UTF-8
 MAIL=/var/spool/mail/$USER
 PATH=$PATH:/sbin:/usr/sbin:$HOME/dotfiles/bin:$HOME/bin
-VISUAL=vi
+VISUAL=$EDTIOR
 
-export EDITOR LANG MAIL PATH VISUAL
+MESA_GLSL_CACHE_ENABLE=1
 
-test -e /tmp/cache-$USER || ( mkdir /tmp/cache-$USER && ln -s /tmp/cache-$USER $HOME/.cache )
+mkdir -p /tmp/neovim
+NVIM_LISTEN_ADDRESS=/tmp/neovim/neovim
 
-test -z "$DISPLAY" && test `tty` = /dev/tty1 && startx
+mkdir -p /tmp/cache-$USER
+
+export EDITOR ENV LANG MAIL PATH VISUAL MESA_GLSL_CACHE_ENABLE NVIM_LISTEN_ADDRESS

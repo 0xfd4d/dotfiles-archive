@@ -1,9 +1,0 @@
-[paths]
-save_file = ~/.fbless_save
-
-[general]
-status: false
-
-[default]
-bold: false
-

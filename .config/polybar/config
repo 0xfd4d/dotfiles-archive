@@ -1,0 +1,100 @@
+[colors]
+background = ${xrdb:XTerm.vt100.background}
+foreground = ${xrdb:XTerm.vt100.foreground}
+color0 = ${xrdb:XTerm.vt100.color0}
+color1 = ${xrdb:XTerm.vt100.color1}
+color2 = ${xrdb:XTerm.vt100.color2}
+color3 = ${xrdb:XTerm.vt100.color3}
+color4 = ${xrdb:XTerm.vt100.color4}
+color5 = ${xrdb:XTerm.vt100.color5}
+color6 = ${xrdb:XTerm.vt100.color6}
+color7 = ${xrdb:XTerm.vt100.color7}
+color8 = ${xrdb:XTerm.vt100.color8}
+color9 = ${xrdb:XTerm.vt100.color9}
+color10 = ${xrdb:XTerm.vt100.color10}
+color11 = ${xrdb:XTerm.vt100.color11}
+color12 = ${xrdb:XTerm.vt100.color12}
+color13 = ${xrdb:XTerm.vt100.color13}
+color14 = ${xrdb:XTerm.vt100.color14}
+color15 = ${xrdb:XTerm.vt100.color15}
+
+[bar/bar]
+width = 100%
+height = 24
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+
+font-0 = Fixed:pixelsize=12:lang=ru;2
+
+modules-left = bspwm xwindow
+modules-right = doit date
+
+module-margin-left = 1
+
+tray-position = right
+tray-padding = 0
+tray-transparent = false
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+padding-right = 1
+
+enable-ipc = false
+
+wm-restack = bspwm
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background}
+label-focused-underline = ${colors.color7}
+label-focused-padding = 1
+
+label-focused-occupied = %index%
+label-focused-occupied-background = ${colors.color8}
+label-focused-occupied-underline = ${colors.color7}
+label-focused-occupied-padding = 1
+
+label-occupied = %index%
+label-occupied-background = ${colors.color0}
+label-occupied-foreground = ${colors.foreground}
+label-occupied-padding = 1
+
+label-urgent = %index%
+label-urgent-background = ${colors.foreground}
+label-urgent-foreground = ${colors.background}
+label-urgent-padding = 1
+
+label-empty =
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:120:...%
+
+[module/doit]
+interval = 30
+type = custom/script
+exec = task_polybar
+
+[module/date]
+type = internal/date
+interval = 5
+
+time = %H:%M
+time-alt = %a %d %b %H:%M:%S
+
+format-prefix =
+format-prefix-foreground = ${colors.foreground}
+
+label = %time%
+
+[settings]
+screenchange-reload = true
+
+; vim:ft=dosini

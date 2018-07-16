@@ -1,11 +1,42 @@
 #!/bin/sh
 
+# init
+
+# load .Xresources
+xrdb -merge ~/dotfiles/.Xresources
+
+# disable autorepeat
+xset r off
+
+# holy eyesaver 
+redshift -l 60.84:31.56 &
+
+# set wallpaper
+hsetroot &
+
+# notify watcher
+notify -d &
+
+# notify daemon
+dunst &
+
+# mail dir watcher
+mailwatch &
+
+# status bar
+polybar bar &
+
+# keyboard daemon
+sxhkd &
+
+# bspwm config
+
 bspc config border_width 2
-bspc config window_gap 2
+bspc config window_gap 7
 
 bspc config split_ratio 0.5
 
-bspc config bottom_padding 24
+bspc config top_padding 24
 
 bspc config focused_border_color "$(xrdb -query | grep "color7" | awk '{print $2}')"
 bspc config normal_border_color "$(xrdb -query | grep "color0" | awk '{print $2}')"
@@ -15,27 +46,29 @@ bspc config presel_feedback_color "$(xrdb -query | grep "color7" | awk '{print $
 bspc config focus_follows_pointer true
 
 bspc config borderless_monocle true
-bspc config gapless_monocle true
+bspc config gapless_monocle false
 bspc config single_monocle true
 
-bspc config honor_size_hints false
+bspc config honor_size_hints true
+
+bspc config initial_polarity second_child
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
-bspc rule -a "*:*" state=float
-bspc rule -a "Chromium" desktop=^1 follow=on
-bspc rule -a "Firefox:Navigator" desktop=^1 follow=on
-bspc rule -a "Pale moon:Navigator" desktop=^1 follow=on
+bspc rule -a Chromium desktop=^1 follow=on
 
-bspc rule -a Sxiv desktop=^5 follow=on
-bspc rule -a feh desktop=^5 follow=on
-bspc rule -a mpv desktop=^5 follow=on
+bspc rule -a discord desktop=^3 follow=on
+
+bspc rule -a Steam desktop=^6 follow=off
+bspc rule -a hl2_linux desktop=^6 follow=off
+
+bspc rule -a Sxiv desktop=^8 follow=on
+bspc rule -a feh desktop=^8 follow=on
+bspc rule -a mpv desktop=^8 follow=on
 
 bspc rule -a Pidgin desktop=^9 follow=on
 
-bspc rule -a Gimp desktop=^6 follow=on
-bspc rule -a Inkscape desktop=^6 follow=on
-bspc rule -a MyPaint desktop=^6 follow=on
-bspc rule -a krita desktop=^6 follow=on
-
 bspc rule -a "*:qemu-system-x86_64" desktop=^7 follow=on state=pseudo_tiled
+bspc rule -a Virt-viewer desktop=^7 follow=on
+bspc rule -a Virt-manager desktop=^7 follow=on
+bspc rule -a Remote-viewer desktop=^7 follow=on

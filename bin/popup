@@ -4,14 +4,10 @@ test -z "$@" && exit 1
 
 WAIT=${WAIT:-0}
 
-rw=`lsw -r`
-sx=`wattr w $rw`
-sy=`wattr h $rw`
-
 w=244
 h=28
 x=24
-y=48
+y=24
 
 bg=`xrdb -query | grep background: | awk '{print $2}'`
 fg=`xrdb -query | grep foreground: | awk '{print $2}'`

@@ -1,16 +1,16 @@
 #!/bin/sh
 #
-# ufetch-crux - tiny system info for crux
+# ufetch-void - tiny system info for void linux
 #
 
 ## INFO
 
 # user is already defined
 hostname="$(hostname)"
-os="$(crux)"
+os='Void Linux'
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
-packages="$(pkginfo -i | wc -l)"
+packages="$(xbps-query -l | wc -l)"
 shell="$(basename ${SHELL})"
 if [ -z "${WM}" ]; then
 	WM="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
@@ -31,21 +31,22 @@ c7="$(tput setaf 7)"	# white
 rc="$(tput sgr0)"		# reset
 
 # you can change these
-lc="${rc}${bc}${c4}"	# labels
-nc="${rc}"	# user and hostname
-ic="${rc}${c4}"	# info
-pc="${rc}${c6}"			# penguin
+lc="${rc}${bc}${c2}"	# labels
+nc="${rc}${bc}${c2}"	# user and hostname
+ic="${rc}${bc}${c7}"	# info
+fc="${rc}${bc}${c2}"	# first color
+sc="${rc}${c2}"			# second color
 
 ## OUTPUT
 
 cat <<EOF
 
-  ${nc}${USER}${ic}@${nc}${hostname}${rc}
-  ${lc}OS:        ${ic}${os}${rc}
-  ${lc}KERNEL:    ${ic}${kernel}${rc}
-  ${lc}UPTIME:    ${ic}${uptime}${rc}
-  ${lc}PACKAGES:  ${ic}${packages}${rc}
-  ${lc}SHELL:     ${ic}${shell}${rc}
-  ${lc}WM:        ${ic}${WM}${rc}
+${fc}      _______    ${nc}${USER}${ic}@${nc}${hostname}${rc}
+${sc}   _ ${fc}\______ \   ${lc}OS:        ${ic}${os}${rc}
+${sc}  | \  ${fc}___  \ |  ${lc}KERNEL:    ${ic}${kernel}${rc}
+${sc}  | | ${fc}/   \ | |  ${lc}UPTIME:    ${ic}${uptime}${rc}
+${sc}  | | ${fc}\___/ | |  ${lc}PACKAGES:  ${ic}${packages}${rc}
+${sc}  | \______ ${fc}\_|  ${lc}SHELL:     ${ic}${shell}${rc}
+${sc}   \_______\     ${lc}WM:        ${ic}${WM}${rc}
 
 EOF

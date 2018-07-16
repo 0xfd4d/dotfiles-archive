@@ -1,8 +1,16 @@
-XTerm.vt100.faceName: Fixed:pixelsize=12:lang=ru:antialias=false:autohint=false
+!XTerm.vt100.faceName: Fixed:pixelsize=13:lang=ru:antialias=false:style=Bold
+XTerm.vt100.faceName: Fixed:style=Bold:pixelsize=13:lang=ru:antialias=false
+XTerm.vt100.internalBorder: 1
 XTerm.vt100.locale: true
 XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.scaleHeight: 1.05
+XTerm.vt100.bellIsUrgent: true
+XTerm.ptyInitialErase: true
+XTerm.backarrowKeyIsErase: true
 XTerm.termName: xterm-256color
-XTerm.loginShell: true
 XTerm.hold: false
 
-#include ".Xresources.d/blaquemagic"
+XTerm.vt100.translations: #override \n\
+	Ctrl Alt <Key>S: secure()
+
+#include ".config/colours/nord"

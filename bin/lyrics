@@ -17,10 +17,10 @@ case $1 in
                 if test -f "$file"
                 then
                     less "$file" 2>/dev/null &
-                    LPID=$!
                 else
-                    echo "No lyrics found for $name"
+                    less -f /dev/null &
                 fi
+                LPID=$!
             done
         }
     ;;

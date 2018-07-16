@@ -1,4 +1,4 @@
 #!/bin/sh
 
-inotifywait -m -e close_write /var/mail/$USER 2>/dev/null | \
+inotifywait -m -e moved_to /var/spool/mail/$USER/new | \
 while read line; do WAIT=1 notify new mail!; done

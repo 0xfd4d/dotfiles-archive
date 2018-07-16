@@ -1,6 +1,3 @@
 #!/bin/sh
 
-LEMONBAR_FIFO="/tmp/lemonbar_fifo"
-
-test -e $LEMONBAR_FIFO || exit 1
-echo "T:%{R} $@ %{R}" > $LEMONBAR_FIFO
+echo "$@" > /mnt/data/doit

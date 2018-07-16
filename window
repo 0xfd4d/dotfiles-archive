@@ -1,9 +1,0 @@
-default     printf '%s %s %s %s' "448" "252" "560" "336"
-st-256color printf '%s %s %s %s' "$(wsize w "$id")" "$(wsize h "$id")          "$(wsize w "$id")" "$(wsize h "$id")
-Pidgin      printf '%s %s %s %s' "$(wsize w "$id")" "$(wsize h "$id")          "$(wsize w "$id")" "$(wsize h "$id")
-
-Chromium    printf '%s %s %s %s' "$(wsize w "$id")" "$(((height - gaps) / 2))" "$(wsize w "$id")" "$((height - gaps))"
-Gimp        printf '%s %s %s %s' "$(wsize w "$id")" "$(((height - gaps) / 2))" "$(wsize w "$id")" "$((height - gaps))"
-Sxiv        printf '%s %s %s %s' "$(wsize w "$id")" "$(((height - gaps) / 2))" "$(wsize w "$id")" "$((height - gaps))"
-
-mpv t_h="$(echo '{ "command": ["get_property", "video-aspect"] }' | socat - /tmp/mpvsocket | jshon -e data -u)"; printf '%s %s %s %s' "$(( $(wsize w "$id") / 4 ))" "$(echo "$(wsize w "$id")"/"$t_h" | bc)" "$(wsize w "$id")" "$(echo "$(wsize w "$id")"/"$t_h" | bc)"

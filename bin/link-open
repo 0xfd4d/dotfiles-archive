@@ -10,11 +10,10 @@ colorfg="`xrdb -query | grep foreground: | awk '{print $2}'`"
 
 dmenu_args="-l 20 -fn fixed:pixelsize=12:lang=ru -nb $colorbg -nf $colorfg -sb $colorfg -sf $colorbg"
 
-case `echo "copy img pdf text video web" | tr " " "\n" | dmenu $dmenu_args` in
-    copy) printf "%s" "$URI" | xsel -ib ;;
-    img) img "$URI" ;;
-    pdf) mupdf-x11-curl "$URI" ;;
-    text) st -g "72x20" -e sh -c "curl -s '$URI' | less -R" ;;
-    video) play "$URI" ;;
-    web) chromium "$URI" ;;
+case `echo "img pdf text video web" | tr " " "\n" | dmenu $dmenu_args` in
+    img) exec img "$URI" ;;
+    pdf) exec mupdf-x11-curl "$URI" ;;
+    text) exec st -g "72x20" -e sh -c "curl -s '$URI' | less -R" ;;
+    video) exec play "$URI" ;;
+    web) exec chromium "$URI" ;;
 esac
