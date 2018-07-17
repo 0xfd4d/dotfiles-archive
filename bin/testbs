@@ -3,7 +3,7 @@
 #create a file to work with
 #
 echo "creating a file to work with"
-dd if=/dev/urandom of=$PWD/infile bs=1024 count=1000000
+dd if=/dev/urandom of=$PWD/infile bs=1024 count=100000
 
 for bs in 512 1k 2k 4k 8k 16k 32k 64k 128k 256k 512k 1M 2M 4M 8M
 do

@@ -115,6 +115,7 @@ super + button{4-5}
 super + {Left,Down,Up,Right}
     bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# balance selected nodes
 super + n
     bspc node -B
 
@@ -125,16 +126,14 @@ super + n
 # terminal emulator
 super + {Return,KP_Enter}
     xterm
-    # st -g 72x20
-    # alacritty
 
 # program launcher
 super + w
-    slaunch
+    rofi -show run
 
 # make sxhkd reload its configuration files:
-# super + Escape
-#     pkill -USR1 -x sxhkd
+super + Escape
+    pkill -USR1 -x sxhkd
 
 # colorpick
 super + shift + button1
