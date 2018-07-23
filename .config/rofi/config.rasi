@@ -2,7 +2,7 @@ configuration {
 	modi:				"drun,run";
 	width:				683;
 	lines:				10;
-	font:				"Fixed Bold 10";
+	font:				"Fixed 9";
 	show-match:			false;
 	separator-style:	"solid";
 	hide-scrollbar:		true;
